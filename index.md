@@ -12,4 +12,9 @@ Battles: 0%<br>
 Story: 0%<br>
 <br>
 -- Downloads --<br>
+<br>
 Downloads not available yet
+<br>
+-- Join the team! --
+<br>
+https://forms.gle/XbjDETsEeZ4iTFQT6
