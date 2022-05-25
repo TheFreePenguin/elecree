@@ -3,7 +3,7 @@
 Welcome to the Elecree webpage!
 
 -- Current Progress --
-Sprites:         \[###                                                                                                 ]
-Player Movement: \[                                                                                                    ]
-Battles:         \[                                                                                                    ]
-Story:           \[                                                                                                    ]
+Sprites:         \[###                                                                                                 ]<br>
+Player Movement: \[                                                                                                    ]<br>
+Battles:         \[                                                                                                    ]<br>
+Story:           \[                                                                                                    ]<br>
