@@ -2,7 +2,7 @@
 
 Welcome to the Elecree webpage!
 
--- Current Progress --
+-- Current Progress --<br>
 Sprites:         \[###                                                                                                 ]<br>
 Player Movement: \[                                                                                                    ]<br>
 Battles:         \[                                                                                                    ]<br>
