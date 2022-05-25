@@ -2,6 +2,8 @@
 
 Welcome to the Elecree webpage!
 
+![](elecreelogo.png)
+
 -- Current Progress --<br>
 Sprites: 3%<br>
 Player Movement: 0%<br>
