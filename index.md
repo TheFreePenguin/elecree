@@ -2,7 +2,7 @@
 
 Welcome to the Elecree webpage!
 
-![](elecreelogosquig.png)
+![](eclogo.png)
 
 -- Current Progress --<br>
 Sprites: 3%<br>
