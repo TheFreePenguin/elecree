@@ -6,8 +6,8 @@ Welcome to the Elecree webpage!
 
 -- Current Progress --<br>
 Sprites: 3%<br>
-Tiles: 0%<br>
-Player Movement: 0%<br>
+Tiles: 1%<br>
+Player Movement: 50%<br>
 Battles: 0%<br>
 Story: 0%<br>
 <br>
