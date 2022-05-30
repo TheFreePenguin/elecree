@@ -13,7 +13,7 @@ Story: 0%<br>
 <br>
 -- Downloads --<br>
 <br>
-Downloads not available yet
+To download Elecree, you need to install Godot and then clone the git repo<br>
 <br>
 -- Join the team! --
 <br>
