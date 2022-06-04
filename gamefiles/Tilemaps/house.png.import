@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/sheet_fire.png-e308b5c9c3658740a06572d38240c237.stex"
+path="res://.import/house.png-78c74ac739f9900b441c1cd2a8534b3d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://OverSprites/sheet_fire.png"
-dest_files=[ "res://.import/sheet_fire.png-e308b5c9c3658740a06572d38240c237.stex" ]
+source_file="res://Tilemaps/house.png"
+dest_files=[ "res://.import/house.png-78c74ac739f9900b441c1cd2a8534b3d.stex" ]
 
 [params]
 
