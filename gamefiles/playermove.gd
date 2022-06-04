@@ -14,6 +14,7 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+# warning-ignore:unused_argument
 func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_left"):
@@ -33,4 +34,5 @@ func _physics_process(delta):
 	else:
 		velocity.y = 0
 	# MOTION!
+# warning-ignore:return_value_discarded
 	move_and_collide(velocity)
