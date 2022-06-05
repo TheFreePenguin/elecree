@@ -13,7 +13,7 @@ Story: 0%<br>
 <br>
 -- Downloads --<br>
 <br>
-Binaries currently not available yet due to filesize restrictions on Github. To download Elecree, you need to install Godot and then clone the git repo<br>
+Version 0.0.7 is available [here](https://thefreepenguin.itch.io/elecree)<br>
 <br>
 -- Join the team! --
 <br>
