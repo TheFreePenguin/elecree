@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/elecreets.png-830d002bbcad7237eafd2610f7876e7d.stex"
+path="res://.import/tree.png-e33960d069a386762df29c4f2d97e2a4.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Background/elecreets.png"
-dest_files=[ "res://.import/elecreets.png-830d002bbcad7237eafd2610f7876e7d.stex" ]
+source_file="res://Tilemaps/tree.png"
+dest_files=[ "res://.import/tree.png-e33960d069a386762df29c4f2d97e2a4.stex" ]
 
 [params]
 
