@@ -6,7 +6,7 @@ extends Node2D
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	pass # Replace with function body.
+	print("Initialized new_script.gd")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,4 +17,4 @@ func _ready():
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
 		print("Switching to game...")
-		get_tree().change_scene("res://elecreeTesting.tscn")
+		get_tree().change_scene("res://rebirthTown.tscn")
