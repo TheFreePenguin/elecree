@@ -13,7 +13,7 @@ Story: 0%<br>
 <br>
 -- Downloads --<br>
 <br>
-Version 0.0.7 is available [here](https://thefreepenguin.itch.io/elecree)<br>
+Version 0.0.8 is available [here](https://thefreepenguin.itch.io/elecree)<br>
 <br>
 -- Join the team! --
 <br>
