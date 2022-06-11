@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Transformation Start.mp3-d3f850343fe69235a3dc040d1ea3581b.mp3str"
+
+[deps]
+
+source_file="res://ost/Transformation Start.mp3"
+dest_files=[ "res://.import/Transformation Start.mp3-d3f850343fe69235a3dc040d1ea3581b.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
