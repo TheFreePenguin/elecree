@@ -1,0 +1,15 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+path="res://.import/Jugo Roads.mp3-0eec1199d353431954b7ae29127ef757.mp3str"
+
+[deps]
+
+source_file="res://ost/Jugo Roads.mp3"
+dest_files=[ "res://.import/Jugo Roads.mp3-0eec1199d353431954b7ae29127ef757.mp3str" ]
+
+[params]
+
+loop=true
+loop_offset=0
