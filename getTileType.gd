@@ -1,6 +1,6 @@
 extends TileMap
-
-
+var currentTile
+var randomEncounter
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -15,4 +15,9 @@ func _ready():
 
 
 func _process(delta):
-	get_cellv(world_to_map(get_parent().get_node("Player").global_position))
+	
+	if get_cellv(world_to_map(get_parent().get_node("Player/Sprite").global_position)) == 33:
+		randomEncounter = int(rand_range(1, 120))
+		if randomEncounter == 69:
+			if get_parent().get_node("Player").isMoving == true:
+				print("Random encounter will trigger in later versions.")

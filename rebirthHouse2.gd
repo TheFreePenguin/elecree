@@ -12,7 +12,9 @@ func _ready():
 	if global.currentScene == "rebirthTown":
 		get_node("Player/Sprite").global_position = get_node("Player").global_position
 		get_node("Player/CollisionShape2D").global_position = get_node("Player").global_position
-		get_node("Player").global_position = global.currentPos + global.posMod
+		get_node("Player").global_position.x = 64
+		get_node("Player").global_position.y = 88
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

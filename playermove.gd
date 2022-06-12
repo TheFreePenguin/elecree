@@ -1,5 +1,6 @@
 extends KinematicBody2D
 
+var isMoving
 var velocity = Vector2.ZERO
 # Declare member variables here. Examples:
 # var a = 2
@@ -19,10 +20,10 @@ func _physics_process(delta):
 	
 	if Input.is_action_pressed("ui_left"):
 		velocity.x = -1
-	
+		
 	elif Input.is_action_pressed("ui_right"):
 		velocity.x = 1
-	
+		
 	else:
 		velocity.x = 0
 	
@@ -37,3 +38,18 @@ func _physics_process(delta):
 # warning-ignore:return_value_discarded
 	move_and_collide(velocity)
 
+func _process(delta):
+	if Input.is_action_pressed("ui_left"):
+		isMoving = true
+		
+	elif Input.is_action_pressed("ui_right"):
+		isMoving = true
+	
+	elif Input.is_action_pressed("ui_up"):
+		isMoving = true
+	
+	elif Input.is_action_pressed("ui_down"):
+		isMoving = true
+	
+	else:
+		isMoving = false
