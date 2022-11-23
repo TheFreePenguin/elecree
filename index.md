@@ -13,8 +13,11 @@ Story: 0%<br>
 <br>
 -- Downloads --<br>
 <br>
-Version 0.0.8 is available [here](https://thefreepenguin.itch.io/elecree)<br>
+Version 0.0.11 is available [here](https://thefreepenguin.itch.io/elecree)<br>
 <br>
 -- Join the team! --
 <br>
 https://forms.gle/XbjDETsEeZ4iTFQT6
+<br>
+-- Changelog for 0.0.12 --<br>
+Add dictionary and stat calculation
