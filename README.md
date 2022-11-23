@@ -9,7 +9,7 @@ Godot
 
 Godot Export Templates
 
-How do build from source:
+How to build from source:
 
 1. Clone the repo
 
