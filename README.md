@@ -27,4 +27,4 @@ For Windows / Linux:
 
 5. Click "Export PCK/ZIP", make sure to export it as a .pck file
 
-6. Click "Export project", export it in the same directory
+6. Click "Export project", export it in the same directory. The .pck file and the binary must have the same name (minus the extension) or else they won't run properly.
