@@ -33,6 +33,11 @@ func _ready():
 		get_node("Player/CollisionShape2D").global_position = get_node("Player").global_position
 		get_node("Player").global_position.x = 232
 		get_node("Player").global_position.y = 240
+	if global.currentScene == "rebirthECenter":
+		get_node("Player/Sprite").global_position = get_node("Player").global_position
+		get_node("Player/CollisionShape2D").global_position = get_node("Player").global_position
+		get_node("Player").global_position.x = 104
+		get_node("Player").global_position.y = 408
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):

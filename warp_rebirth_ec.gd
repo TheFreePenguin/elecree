@@ -8,16 +8,18 @@ onready var global = get_node("/root/GlobalVars")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("Initialized warp_rebirth_h3.gd")
+	print("Initialized warp_rebirth_h4.gd")
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
 
-func _on_Area2D2_body_entered(body):
-	print("Warping the player to Rebirth House 3...")
+
+
+func _on_EB_Warp_body_entered(body):
+	print("Warping the player to Rebirth Elecree Building...")
 	global.currentPos = get_parent().get_node("Player").global_position
 	global.currentScene = "rebirthTown"
-	global.destinationScene = "rebirthHouse3"
+	global.destinationScene = "rebirthECenter"
 	global._warpPlayer()
