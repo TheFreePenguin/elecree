@@ -1,5 +1,5 @@
 extends KinematicBody2D
-
+onready var global = get_node("/root/GlobalVars")
 var isMoving
 var velocity = Vector2.ZERO
 # Declare member variables here. Examples:
@@ -17,26 +17,26 @@ func _ready():
 #	pass
 # warning-ignore:unused_argument
 func _physics_process(delta):
+	if global.cutscenePlaying == false:
+		if Input.is_action_pressed("ui_left"):
+			velocity.x = -1
+			
+		elif Input.is_action_pressed("ui_right"):
+			velocity.x = 1
+			
+		else:
+			velocity.x = 0
 	
-	if Input.is_action_pressed("ui_left"):
-		velocity.x = -1
-		
-	elif Input.is_action_pressed("ui_right"):
-		velocity.x = 1
-		
-	else:
-		velocity.x = 0
+		if Input.is_action_pressed("ui_up"):
+			velocity.y = -1
 	
-	if Input.is_action_pressed("ui_up"):
-		velocity.y = -1
-	
-	elif Input.is_action_pressed("ui_down"):
-		velocity.y = 1
-	else:
-		velocity.y = 0
+		elif Input.is_action_pressed("ui_down"):
+			velocity.y = 1
+		else:
+			velocity.y = 0
 	# MOTION!
 # warning-ignore:return_value_discarded
-	move_and_collide(velocity)
+		move_and_collide(velocity)
 
 func _process(delta):
 	if Input.is_action_pressed("ui_left"):
