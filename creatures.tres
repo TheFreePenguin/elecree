@@ -1,0 +1,19 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://creatures.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+data = [ {
+"baseat": 30,
+"basedf": 30,
+"basehp": 30,
+"basesp": 30,
+"basest": 30,
+"basexp": 50,
+"edeviceentry": "This is a test monster used for debugging. It should not be seen in the final release",
+"edeviceheight": 1.0,
+"edeviceid": 0,
+"edeviceweight": 10.0,
+"name": "TestMonster"
+} ]
