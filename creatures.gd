@@ -28,12 +28,22 @@ func _calculateStats(dnahp,dnaat,dnadf,dnasp,dnast,level,creature):
 	var totalsp
 # warning-ignore:unused_variable
 	var totalst
-	totalhp = int ((data[creature].basehp * level) / 20) + dnahp
-	totalat = int ((data[creature].baseat * level) / 20) + dnaat
-	totaldf = int ((data[creature].basehp * level) / 20) + dnadf
-	totalsp = int ((data[creature].basesp * level) / 20) + dnasp
-	totalst = int ((data[creature].basest * level) / 20) + dnast
-	return totalat
+	var hpstr
+	var atstr
+	var dfstr
+	var spstr
+	var ststr
+	totalhp = int ((data[creature].basehp * level) / 10) + dnahp
+	totalat = int ((data[creature].baseat * level) / 10) + dnaat
+	totaldf = int ((data[creature].basehp * level) / 10) + dnadf
+	totalsp = int ((data[creature].basesp * level) / 10) + dnasp
+	totalst = int ((data[creature].basest * level) / 10) + dnast
+	hpstr = str(totalhp)
+	atstr = str(totalat)
+	dfstr = str(totaldf)
+	spstr = str(totalsp)
+	ststr = str(totalst)
+	return "HP: " + hpstr + " AT: " + atstr + " DF: " + dfstr + " SP: " + spstr + " ST: " + spstr
 
 func _input(ev):
 	var returnValue = _calculateStats(15,15,15,15,15,15,0)
