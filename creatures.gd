@@ -43,7 +43,7 @@ func _calculateStats(dnahp,dnaat,dnadf,dnasp,dnast,level,creature):
 	dfstr = str(totaldf)
 	spstr = str(totalsp)
 	ststr = str(totalst)
-	return "HP: " + hpstr + " AT: " + atstr + " DF: " + dfstr + " SP: " + spstr + " ST: " + spstr
+	return "HP: " + hpstr + " AT: " + atstr + " DF: " + dfstr + " SP: " + spstr + " ST: " + ststr
 
 func _input(ev):
 	var returnValue = _calculateStats(15,15,15,15,15,15,0)

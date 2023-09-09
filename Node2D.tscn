@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
-[ext_resource path="res://Background/elecreets.png" type="Texture" id=1]
+[ext_resource path="res://Background/elecreets2.png" type="Texture" id=1]
 [ext_resource path="res://new_script.gd" type="Script" id=2]
 [ext_resource path="res://statcall.gd" type="Script" id=3]
+[ext_resource path="res://retrogaming.tres" type="DynamicFont" id=4]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 2 )
@@ -10,6 +11,16 @@ script = ExtResource( 2 )
 [node name="Elecreets" type="Sprite" parent="."]
 position = Vector2( 120, 80 )
 texture = ExtResource( 1 )
+
+[node name="Label" type="Label" parent="Elecreets"]
+margin_left = -120.0
+margin_top = 59.0
+margin_right = 120.0
+margin_bottom = 80.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 4 )
+text = "Press [Z] to begin"
+align = 1
 
 [node name="debugstatcalc" type="Node2D" parent="."]
 script = ExtResource( 3 )

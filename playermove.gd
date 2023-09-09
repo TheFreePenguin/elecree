@@ -2,6 +2,7 @@ extends KinematicBody2D
 onready var global = get_node("/root/GlobalVars")
 var isMoving
 var velocity = Vector2.ZERO
+
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
