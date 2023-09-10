@@ -37,3 +37,5 @@ func _process(delta):
 	# I know this is beginner code but it doesn't matter if the cat is black or white as long as it catches mice
 		if not Input.is_action_pressed("ui_left") && not Input.is_action_pressed("ui_right") && not Input.is_action_pressed("ui_up") && not Input.is_action_pressed("ui_down"):
 			set_current_animation("idle_" + lastdir)
+	else:
+		set_current_animation("idle_" + lastdir)
