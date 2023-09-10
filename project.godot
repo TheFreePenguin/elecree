@@ -12,12 +12,14 @@ config_version=4
 
 config/name="Elecree"
 run/main_scene="res://Node2D.tscn"
-config/icon="res://icon.png"
+config/icon="res://elecree_e.png"
 
 [autoload]
 
 Global="*res://Global.tscn"
 GlobalVars="*res://globalVars.gd"
+Textbox="*res://textbox.tscn"
+TextboxScript="*res://textbox_script.gd"
 
 [display]
 
