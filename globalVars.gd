@@ -4,7 +4,7 @@ var destinationScene: String
 var posMod: Vector2
 var currentPos: Vector2
 var cutscenePlaying: bool
-var closestInteractable: String
+var closestInteractable: String = "null"
 # var b = "text"
 
 

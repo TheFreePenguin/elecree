@@ -218,3 +218,4 @@ shape = SubResource( 12 )
 
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="DevLOper/Area2D" to="DevLOper/Area2D" method="_on_Area2D_body_entered"]
+[connection signal="body_exited" from="DevLOper/Area2D" to="DevLOper/Area2D" method="_on_Area2D_body_exited"]
