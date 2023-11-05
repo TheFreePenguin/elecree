@@ -7,7 +7,8 @@ onready var global = get_node("/root/GlobalVars")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("==[ Elecree v0.0.18 ]==")
+	print("==[ Elecree v0.0.19 ]==")
+	global.cutscenePlaying = true
 
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
@@ -17,5 +18,6 @@ func _ready():
 # Will advance to game
 func _process(delta):
 	if Input.is_action_pressed("ui_accept"):
+		global.cutscenePlaying = false
 		print("Switching to game...")
 		get_tree().change_scene("res://rebirthTown.tscn")

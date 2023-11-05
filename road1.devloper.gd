@@ -1,9 +1,9 @@
 extends Area2D
 onready var global = get_node("/root/GlobalVars")
-onready var textbox = get_node("/root/Textbox/TileMap")
-onready var textboxlabel1 = get_node("/root/Textbox/TileMap/VBoxContainer/Label")
-onready var textboxlabel2 = get_node("/root/Textbox/TileMap/VBoxContainer/HBoxContainer/Label")
-onready var textboxlabel3 = get_node("/root/Textbox/TileMap/VBoxContainer/HBoxContainer2/Label")
+onready var textbox = get_node("/root/Textbox/TextBox")
+onready var textboxlabel1 = get_node("/root/Textbox/TextBox/VBoxContainer/Label")
+onready var textboxlabel2 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer/Label")
+onready var textboxlabel3 = get_node("/root/Textbox/TextBox/VBoxContainer/HBoxContainer2/Label")
 var interactNumber: int
 
 # Declare member variables here. Examples:
