@@ -23,19 +23,19 @@ func _process(delta):
 			lastdir = "w"
 			set_current_animation("walk_w")
 		
-		if Input.is_action_pressed("ui_right"):
+		elif Input.is_action_pressed("ui_right"):
 			lastdir = "e"
 			set_current_animation("walk_e")
 		
-		if Input.is_action_pressed("ui_up"):
+		elif Input.is_action_pressed("ui_up"):
 			lastdir = "n"
 			set_current_animation("walk_n")
 		
-		if Input.is_action_pressed("ui_down"):
+		elif Input.is_action_pressed("ui_down"):
 			lastdir = "s"
 			set_current_animation("walk_s")
 	# I know this is beginner code but it doesn't matter if the cat is black or white as long as it catches mice
-		if not Input.is_action_pressed("ui_left") && not Input.is_action_pressed("ui_right") && not Input.is_action_pressed("ui_up") && not Input.is_action_pressed("ui_down"):
+		else:
 			set_current_animation("idle_" + lastdir)
 	else:
 		set_current_animation("idle_" + lastdir)

@@ -1,49 +1,109 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
 [ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
 [ext_resource path="res://textbox_script.gd" type="Script" id=3]
+[ext_resource path="res://menu.gd" type="Script" id=4]
 
 [node name="CanvasLayer" type="CanvasLayer"]
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TextBox" type="TileMap" parent="."]
+visible = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
 tile_data = PoolIntArray( 393216, 87, 0, 393217, 88, 0, 393218, 88, 0, 393219, 88, 0, 393220, 88, 0, 393221, 88, 0, 393222, 88, 0, 393223, 88, 0, 393224, 88, 0, 393225, 88, 0, 393226, 88, 0, 393227, 88, 0, 393228, 88, 0, 393229, 88, 0, 393230, 89, 0, 458752, 90, 0, 458753, 91, 0, 458754, 91, 0, 458755, 91, 0, 458756, 91, 0, 458757, 91, 0, 458758, 91, 0, 458759, 91, 0, 458760, 91, 0, 458761, 91, 0, 458762, 91, 0, 458763, 91, 0, 458764, 91, 0, 458765, 91, 0, 458766, 92, 0, 524288, 90, 0, 524289, 91, 0, 524290, 91, 0, 524291, 91, 0, 524292, 91, 0, 524293, 91, 0, 524294, 91, 0, 524295, 91, 0, 524296, 91, 0, 524297, 91, 0, 524298, 91, 0, 524299, 91, 0, 524300, 91, 0, 524301, 91, 0, 524302, 92, 0, 589824, 93, 0, 589825, 94, 0, 589826, 94, 0, 589827, 94, 0, 589828, 94, 0, 589829, 94, 0, 589830, 94, 0, 589831, 94, 0, 589832, 94, 0, 589833, 94, 0, 589834, 94, 0, 589835, 94, 0, 589836, 94, 0, 589837, 94, 0, 589838, 95, 0 )
 script = ExtResource( 3 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="TileMap"]
+[node name="VBoxContainer" type="VBoxContainer" parent="TextBox"]
 margin_left = 5.0
 margin_top = 96.0
 margin_right = 235.0
 margin_bottom = 160.0
 
-[node name="Label" type="Label" parent="TileMap/VBoxContainer"]
+[node name="Label" type="Label" parent="TextBox/VBoxContainer"]
 margin_right = 230.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Dev L. Oper"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="TileMap/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="TextBox/VBoxContainer"]
 margin_top = 20.0
 margin_right = 230.0
 margin_bottom = 36.0
 
-[node name="Label" type="Label" parent="TileMap/VBoxContainer/HBoxContainer"]
+[node name="Label" type="Label" parent="TextBox/VBoxContainer/HBoxContainer"]
 margin_right = 108.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "This is a test."
 
-[node name="HBoxContainer2" type="HBoxContainer" parent="TileMap/VBoxContainer"]
+[node name="HBoxContainer2" type="HBoxContainer" parent="TextBox/VBoxContainer"]
 margin_top = 40.0
 margin_right = 230.0
 margin_bottom = 56.0
 
-[node name="Label" type="Label" parent="TileMap/VBoxContainer/HBoxContainer2"]
+[node name="Label" type="Label" parent="TextBox/VBoxContainer/HBoxContainer2"]
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
+
+[node name="Menu" type="TileMap" parent="."]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 87, 0, 1, 88, 0, 2, 88, 0, 3, 88, 0, 4, 89, 0, 65536, 90, 0, 65537, 91, 0, 65538, 91, 0, 65539, 91, 0, 65540, 92, 0, 131072, 90, 0, 131073, 91, 0, 131074, 91, 0, 131075, 91, 0, 131076, 92, 0, 196608, 90, 0, 196609, 91, 0, 196610, 91, 0, 196611, 91, 0, 196612, 92, 0, 262144, 90, 0, 262145, 91, 0, 262146, 91, 0, 262147, 91, 0, 262148, 92, 0, 327680, 90, 0, 327681, 91, 0, 327682, 91, 0, 327683, 91, 0, 327684, 92, 0, 393216, 90, 0, 393217, 91, 0, 393218, 91, 0, 393219, 91, 0, 393220, 92, 0, 458752, 93, 0, 458753, 94, 0, 458754, 94, 0, 458755, 94, 0, 458756, 95, 0 )
+script = ExtResource( 4 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label1" type="Label" parent="Menu/VBoxContainer"]
+margin_right = 69.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "E-device"
+
+[node name="Label2" type="Label" parent="Menu/VBoxContainer"]
+margin_top = 20.0
+margin_right = 69.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Party"
+
+[node name="Label3" type="Label" parent="Menu/VBoxContainer"]
+margin_top = 40.0
+margin_right = 69.0
+margin_bottom = 56.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Bag"
+
+[node name="Label4" type="Label" parent="Menu/VBoxContainer"]
+margin_top = 60.0
+margin_right = 69.0
+margin_bottom = 76.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "[NAME]"
+
+[node name="Label5" type="Label" parent="Menu/VBoxContainer"]
+margin_top = 80.0
+margin_right = 69.0
+margin_bottom = 96.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Save"
+
+[node name="Label6" type="Label" parent="Menu/VBoxContainer"]
+margin_top = 100.0
+margin_right = 69.0
+margin_bottom = 116.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Exit"

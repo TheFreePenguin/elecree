@@ -54,3 +54,5 @@ func _process(delta):
 	
 	else:
 		isMoving = false
+
+
