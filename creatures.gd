@@ -33,11 +33,11 @@ func _calculateStats(dnahp,dnaat,dnadf,dnasp,dnast,level,creature):
 	var dfstr
 	var spstr
 	var ststr
-	totalhp = int ((data[creature].basehp * level) / 10) + dnahp
-	totalat = int ((data[creature].baseat * level) / 10) + dnaat
-	totaldf = int ((data[creature].basehp * level) / 10) + dnadf
-	totalsp = int ((data[creature].basesp * level) / 10) + dnasp
-	totalst = int ((data[creature].basest * level) / 10) + dnast
+	totalhp = int ((data[creature].basehp * level) / 10) + ( dnahp * level )
+	totalat = int ((data[creature].baseat * level) / 10) + ( dnaat * level )
+	totaldf = int ((data[creature].basehp * level) / 10) + ( dnadf * level )
+	totalsp = int ((data[creature].basesp * level) / 10) + ( dnasp * level )
+	totalst = int ((data[creature].basest * level) / 10) + ( dnast * level )
 	hpstr = str(totalhp)
 	atstr = str(totalat)
 	dfstr = str(totaldf)

@@ -2,6 +2,7 @@ extends TileMap
 var currentTile
 var randomEncounter
 var cdata = load("creatures.tres")
+onready var global = get_node("/root/GlobalVars")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
@@ -20,6 +21,6 @@ func _process(delta):
 	if get_cellv(world_to_map(get_parent().get_node("Player/Sprite").global_position)) == 33:
 		randomEncounter = int(rand_range(1, 120))
 		if randomEncounter == 69:
-			if get_parent().get_node("Player").isMoving == true:
+			if get_parent().get_node("Player").isMoving && !global.cutscenePlaying:
 				var returnValue = cdata._calculateStats(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0)
 				print(returnValue)

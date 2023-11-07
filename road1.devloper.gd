@@ -20,15 +20,16 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
+		print(interactNumber)
 		if global.closestInteractable == "devloper":
-			interactNumber = interactNumber + 1
-			if interactNumber == 1:
+			if interactNumber == 0 && !global.cutscenePlaying:
 				global.cutscenePlaying = true
 				textbox.visible = true
 				textboxlabel1.text = "Dev L. Oper:"
 				textboxlabel2.text = "This area is under"
 				textboxlabel3.text = "construction."
-			if interactNumber == 2:
+				interactNumber += 1
+			elif interactNumber == 1:
 				textbox.visible = false
 				global.cutscenePlaying = false
 				interactNumber = 0
