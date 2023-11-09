@@ -25,6 +25,4 @@ func _on_Area2D_body_entered(body):
 	global.currentPos = get_parent().get_node("Player").global_position
 	global.posMod.x = 688
 	global.posMod.y = -64
-	global.currentScene = "road1"
-	global.destinationScene = "rebirthTown"
-	global._warpPlayer()
+	global._warpPlayer(Vector2((get_node("../Player").global_position.x) + 688, (get_node("../Player").global_position.y) - 64), "rebirthTown")

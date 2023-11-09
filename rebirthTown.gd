@@ -7,7 +7,7 @@ onready var global = get_node("/root/GlobalVars")
 
 
 # Called when the node enters the scene tree for the first time.
-func _ready():
+func _not_ready():
 	print("Correcting player position...")
 	get_node("Player/Sprite").global_position = get_node("Player").global_position
 	get_node("Player/CollisionShape2D").global_position = get_node("Player").global_position
@@ -39,6 +39,10 @@ func _ready():
 		get_node("Player").global_position.x = 104
 		get_node("Player").global_position.y = 408
 
+
+func _ready():
+	get_node("Player/Sprite").global_position = get_node("Player").global_position
+	get_node("Player/CollisionShape2D").global_position = get_node("Player").global_position
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
