@@ -17,7 +17,4 @@ func _ready():
 
 func _on_Area2D2_body_entered(body):
 	print("Warping the player to Rebirth House 1...")
-	global.currentPos = get_parent().get_node("Player").global_position
-	global.currentScene = "rebirthTown"
-	global.destinationScene = "rebirthHouse1"
-	global._warpPlayer()
+	global._warpPlayer(Vector2(64, 88), "rebirthHouse1")

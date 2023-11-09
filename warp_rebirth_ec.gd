@@ -19,7 +19,4 @@ func _ready():
 
 func _on_EB_Warp_body_entered(body):
 	print("Warping the player to Rebirth Elecree Building...")
-	global.currentPos = get_parent().get_node("Player").global_position
-	global.currentScene = "rebirthTown"
-	global.destinationScene = "rebirthECenter"
-	global._warpPlayer()
+	global._warpPlayer(Vector2(64, 88), "rebirthECenter")

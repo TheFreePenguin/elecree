@@ -1,6 +1,6 @@
 extends Node
 var currentScene: String
-var destinationScene: String
+#var destinationScene: String
 var posMod: Vector2
 var currentPos: Vector2
 var cutscenePlaying: bool
@@ -18,5 +18,11 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _warpPlayer():
-	get_tree().change_scene("res://" + destinationScene + ".tscn")
+func _warpPlayer(destination: Vector2, destination_scene: String):
+	get_tree().change_scene("res://" + destination_scene + ".tscn")
+	yield(get_tree(), "idle_frame")
+	get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position = destination
+	get_node(String(get_tree().current_scene.get_path()) + "/Player/Sprite").global_position = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position
+	get_node(String(get_tree().current_scene.get_path()) + "/Player/CollisionShape2D").global_position = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position
+	
+
