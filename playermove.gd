@@ -18,7 +18,7 @@ func _ready():
 #	pass
 # warning-ignore:unused_argument
 func _physics_process(delta):
-	if global.cutscenePlaying == false:
+	if !global.cutscenePlaying:
 		if Input.is_action_pressed("ui_left"):
 			velocity.x = -1
 			
