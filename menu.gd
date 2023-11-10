@@ -11,6 +11,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_select") && !global.cutscenePlaying:
 		global.cutscenePlaying = true
 		self.visible = true
+		menu_number = 1
 		get_node("VBoxContainer/Label" + String(menu_number)).add_color_override("font_color",Color(1, 1, 1, 1))
 	
 	if Input.is_action_just_pressed("ui_up") && self.visible:
@@ -42,3 +43,7 @@ func _process(delta):
 			6:
 				self.visible = false
 				global.cutscenePlaying = false
+				menu_number = 7
+				get_node("VBoxContainer/Label" + String(6)).add_color_override("font_color",Color(0, 0, 0, 1))
+			7:
+				pass

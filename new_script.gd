@@ -7,7 +7,7 @@ onready var global = get_node("/root/GlobalVars")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("==[ Elecree v0.0.20 ]==")
+	print("==[ Elecree v0.0.22 ]==")
 	global.cutscenePlaying = true
 
 
