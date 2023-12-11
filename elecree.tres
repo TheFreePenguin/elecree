@@ -1,0 +1,20 @@
+[gd_resource type="Resource" load_steps=2 format=2]
+
+[ext_resource path="res://elecree-class.gd" type="Script" id=1]
+
+[resource]
+script = ExtResource( 1 )
+stathp = 0
+statat = 0
+statdf = 0
+statsp = 0
+statst = 0
+species = 0
+currenthp = 0
+currentat = 0
+currentdf = 0
+currentsp = 0
+currentst = 0
+status = 0
+level = 0
+recharge = 0

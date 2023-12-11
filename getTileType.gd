@@ -22,5 +22,9 @@ func _process(delta):
 		randomEncounter = int(rand_range(1, 120))
 		if randomEncounter == 69:
 			if get_parent().get_node("Player").isMoving && !global.cutscenePlaying:
-				var returnValue = cdata._calculateStats(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0)
-				print(returnValue)
+				if !global.devMode:
+					var returnValue = cdata._calculateStats(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0)
+					print(returnValue)
+				else:
+					global.start_wild_battle(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0)
+
