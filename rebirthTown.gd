@@ -4,6 +4,7 @@ onready var global = get_node("/root/GlobalVars")
 # Declare member variables here. Examples:
 # var a = 2
 # var b = "text"
+#var test_elecree: Elecree = Elecree.new(3, 3, 3, 3, 3, 3, 0)
 
 
 # Called when the node enters the scene tree for the first time.
@@ -43,6 +44,5 @@ func _not_ready():
 func _ready():
 	get_node("Player/Sprite").global_position = get_node("Player").global_position
 	get_node("Player/CollisionShape2D").global_position = get_node("Player").global_position
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-#func _process(delta):
-#	pass
+
+

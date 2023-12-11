@@ -43,10 +43,12 @@ func _calculateStats(dnahp,dnaat,dnadf,dnasp,dnast,level,creature):
 	dfstr = str(totaldf)
 	spstr = str(totalsp)
 	ststr = str(totalst)
+	
+	
 	return "HP: " + hpstr + " AT: " + atstr + " DF: " + dfstr + " SP: " + spstr + " ST: " + ststr
 
-func _input(ev):
-	var returnValue = _calculateStats(15,15,15,15,15,15,0)
-	if ev is InputEventKey and ev.scancode == KEY_K:
-		_calculateStats(15,15,15,15,15,15,0)
-		print(returnValue)
+# func _input(ev):
+	#var returnValue = _calculateStats(15,15,15,15,15,15,0)
+	#if ev is InputEventKey and ev.scancode == KEY_K:
+		#_calculateStats(15,15,15,15,15,15,0)
+		#print(returnValue)

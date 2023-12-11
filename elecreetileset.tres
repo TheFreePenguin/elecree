@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=88 format=2]
+[gd_resource type="TileSet" load_steps=89 format=2]
 
 [ext_resource path="res://Tilemaps/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://Tilemaps/grasstile.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://Tilemaps/ebldgfloorsp.png" type="Texture" id=12]
 [ext_resource path="res://Tilemaps/uibase.png" type="Texture" id=13]
 [ext_resource path="res://Tilemaps/sign.png" type="Texture" id=14]
+[ext_resource path="res://Tilemaps/bg.png" type="Texture" id=15]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -2051,3 +2052,73 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 "shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
 } ]
 96/z_index = 0
+97/name = "uibase.png 97"
+97/texture = ExtResource( 13 )
+97/tex_offset = Vector2( 0, 0 )
+97/modulate = Color( 1, 1, 1, 1 )
+97/region = Rect2( 16, 48, 16, 16 )
+97/tile_mode = 0
+97/occluder_offset = Vector2( 0, 0 )
+97/navigation_offset = Vector2( 0, 0 )
+97/shape_offset = Vector2( 0, 0 )
+97/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+97/shape_one_way = false
+97/shape_one_way_margin = 0.0
+97/shapes = [  ]
+97/z_index = 0
+98/name = "uibase.png 98"
+98/texture = ExtResource( 13 )
+98/tex_offset = Vector2( 0, 0 )
+98/modulate = Color( 1, 1, 1, 1 )
+98/region = Rect2( 32, 48, 16, 16 )
+98/tile_mode = 0
+98/occluder_offset = Vector2( 0, 0 )
+98/navigation_offset = Vector2( 0, 0 )
+98/shape_offset = Vector2( 0, 0 )
+98/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+98/shape_one_way = false
+98/shape_one_way_margin = 0.0
+98/shapes = [  ]
+98/z_index = 0
+99/name = "uibase.png 99"
+99/texture = ExtResource( 13 )
+99/tex_offset = Vector2( 0, 0 )
+99/modulate = Color( 1, 1, 1, 1 )
+99/region = Rect2( 0, 48, 16, 16 )
+99/tile_mode = 0
+99/occluder_offset = Vector2( 0, 0 )
+99/navigation_offset = Vector2( 0, 0 )
+99/shape_offset = Vector2( 0, 0 )
+99/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+99/shape_one_way = false
+99/shape_one_way_margin = 0.0
+99/shapes = [  ]
+99/z_index = 0
+100/name = "bg.png 100"
+100/texture = ExtResource( 15 )
+100/tex_offset = Vector2( 0, 0 )
+100/modulate = Color( 1, 1, 1, 1 )
+100/region = Rect2( 0, 0, 16, 16 )
+100/tile_mode = 0
+100/occluder_offset = Vector2( 0, 0 )
+100/navigation_offset = Vector2( 0, 0 )
+100/shape_offset = Vector2( 0, 0 )
+100/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+100/shape_one_way = false
+100/shape_one_way_margin = 0.0
+100/shapes = [  ]
+100/z_index = 0
+101/name = "bg.png 101"
+101/texture = ExtResource( 15 )
+101/tex_offset = Vector2( 0, 0 )
+101/modulate = Color( 1, 1, 1, 1 )
+101/region = Rect2( 0, 0, 16, 16 )
+101/tile_mode = 0
+101/occluder_offset = Vector2( 0, 0 )
+101/navigation_offset = Vector2( 0, 0 )
+101/shape_offset = Vector2( 0, 0 )
+101/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+101/shape_one_way = false
+101/shape_one_way_margin = 0.0
+101/shapes = [  ]
+101/z_index = 0
