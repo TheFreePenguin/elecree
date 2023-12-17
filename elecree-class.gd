@@ -19,7 +19,7 @@ export(int) var currentsp: int
 export(int) var currentst: int
 export(int) var status: int
 export(int) var level: int
-export(int) var recharge: int
+export(float) var recharge: float
 
 
 func burn():

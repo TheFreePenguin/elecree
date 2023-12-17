@@ -5,9 +5,8 @@ onready var global = get_node("/root/GlobalVars")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("==[ Elecree v0.0.22 ]==")
+	print("==[ Elecree v0.0.24 ]==")
 	global.cutscenePlaying = true
-
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta):

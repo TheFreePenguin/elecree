@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://opponent.gd" type="Script" id=1]
 [ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=3]
 [ext_resource path="res://infoboxes.gd" type="Script" id=4]
+[ext_resource path="res://player_elecree.gd" type="Script" id=5]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 4 )
@@ -139,6 +140,7 @@ custom_fonts/font = ExtResource( 2 )
 text = "S:35"
 
 [node name="PlayerElecree" type="Node2D" parent="."]
+script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="PlayerElecree"]
 
