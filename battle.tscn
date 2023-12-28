@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://opponent.gd" type="Script" id=1]
 [ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=3]
 [ext_resource path="res://infoboxes.gd" type="Script" id=4]
+[ext_resource path="res://player_elecree.gd" type="Script" id=5]
+[ext_resource path="res://attack_selector_hide_on_start.gd" type="Script" id=6]
 
 [node name="Battle" type="Node2D"]
 script = ExtResource( 4 )
@@ -138,7 +140,42 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "S:35"
 
+[node name="Attack Selector" type="CanvasLayer" parent="."]
+script = ExtResource( 6 )
+
+[node name="TileMap" type="TileMap" parent="Attack Selector"]
+tile_set = ExtResource( 3 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 393216, 87, 0, 393217, 88, 0, 393218, 88, 0, 393219, 88, 0, 393220, 88, 0, 393221, 88, 0, 393222, 88, 0, 393223, 88, 0, 393224, 88, 0, 393225, 88, 0, 393226, 88, 0, 393227, 88, 0, 393228, 88, 0, 393229, 88, 0, 393230, 89, 0, 458752, 90, 0, 458753, 91, 0, 458754, 91, 0, 458755, 91, 0, 458756, 91, 0, 458757, 91, 0, 458758, 91, 0, 458759, 91, 0, 458760, 91, 0, 458761, 91, 0, 458762, 91, 0, 458763, 91, 0, 458764, 91, 0, 458765, 91, 0, 458766, 92, 0, 524288, 90, 0, 524289, 91, 0, 524290, 91, 0, 524291, 91, 0, 524292, 91, 0, 524293, 91, 0, 524294, 91, 0, 524295, 91, 0, 524296, 91, 0, 524297, 91, 0, 524298, 91, 0, 524299, 91, 0, 524300, 91, 0, 524301, 91, 0, 524302, 92, 0, 589824, 93, 0, 589825, 94, 0, 589826, 94, 0, 589827, 94, 0, 589828, 94, 0, 589829, 94, 0, 589830, 94, 0, 589831, 94, 0, 589832, 94, 0, 589833, 94, 0, 589834, 94, 0, 589835, 94, 0, 589836, 94, 0, 589837, 94, 0, 589838, 95, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Attack Selector"]
+margin_top = 96.0
+margin_right = 240.0
+margin_bottom = 160.0
+
+[node name="Attack1" type="Label" parent="Attack Selector/VBoxContainer"]
+margin_right = 240.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+
+[node name="Attack2" type="Label" parent="Attack Selector/VBoxContainer"]
+margin_top = 20.0
+margin_right = 240.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+
+[node name="Attack3" type="Label" parent="Attack Selector/VBoxContainer"]
+margin_top = 40.0
+margin_right = 240.0
+margin_bottom = 56.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+
 [node name="PlayerElecree" type="Node2D" parent="."]
+script = ExtResource( 5 )
 
 [node name="Sprite" type="Sprite" parent="PlayerElecree"]
 

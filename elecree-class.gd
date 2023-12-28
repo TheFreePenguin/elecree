@@ -19,7 +19,8 @@ export(int) var currentsp: int
 export(int) var currentst: int
 export(int) var status: int
 export(int) var level: int
-export(int) var recharge: int
+export(float) var recharge: float
+export(Array) var attacks: Array
 
 
 func burn():
@@ -45,3 +46,21 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	recharge = 0
 	status = StatusEffect.OK
 	level = lv
+	attacks = generate_attacks(lv, id)
+
+
+
+func generate_attacks(lv: int, id: int) -> Array:
+	var attacks: Array
+	for i in range(0, lv):
+		var new_attack: String = get_attack(i + 1, id)
+		if new_attack != "":
+			attacks.push_back(new_attack)
+	return attacks
+
+
+func get_attack(lv: int, id: int) -> String:
+		if dict[id].attacks.size() < lv:
+			return ""
+		else:
+			return dict[id].attacks[lv - 1]

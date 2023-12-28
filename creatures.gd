@@ -12,7 +12,8 @@ export(Array) var data = [{
   "basedf": 30,
   "basesp": 30,
   "basest": 30,
-  "basexp": 50
+  "basexp": 50,
+  "attacks": ["", "", "Tackle"]
 }]
 
 func _ready():
