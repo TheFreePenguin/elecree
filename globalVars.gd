@@ -7,7 +7,6 @@ var cutscenePlaying: bool
 var closestInteractable: String = "null"
 var devCode: int = 0
 var devMode: bool = 0
-signal createElecree(hp, at, df, sp, st, lv, id)
 
 var wildgen: Array
 var wild: bool

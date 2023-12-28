@@ -5,6 +5,7 @@
 [resource]
 script = ExtResource( 1 )
 data = [ {
+"attacks": [ "", "", "Tackle" ],
 "baseat": 30,
 "basedf": 30,
 "basehp": 30,
