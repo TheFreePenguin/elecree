@@ -1,7 +1,7 @@
 extends Resource
 
 
-export(Array) var data = [{
+const data = [{
   "name": "TestMonster",
   "edeviceid": 00,
   "edeviceentry": "This is a test monster used for debugging. It should not be seen in the final release",
@@ -13,7 +13,7 @@ export(Array) var data = [{
   "basesp": 30,
   "basest": 30,
   "basexp": 50,
-  "attacks": ["", "", "Tackle"]
+  "attacks": ["a", "b", "c", "d", "e", "f", "g"]
 }]
 
 func _ready():

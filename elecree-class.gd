@@ -48,7 +48,13 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	level = lv
 	attacks = generate_attacks(lv, id)
 
+func attack(target: Elecree, attack: String):
+	match attack:
+		"Tackle":
+			damage(target, 30)
 
+func damage(target: Elecree, power: int):
+	var dmg: int = (power * level * (currentat / target.currentdf)) / 10
 
 func generate_attacks(lv: int, id: int) -> Array:
 	var attacks: Array
