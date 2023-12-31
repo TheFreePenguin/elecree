@@ -1,13 +1,13 @@
 extends Node2D
 onready var global = get_node("/root/GlobalVars")
-# var a = 2
+
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("==[ Elecree v0.0.25 ]==")
+	print("==[ Elecree v0.0.26 ]==")
 	global.cutscenePlaying = true
-	var test_elecree = Elecree.new(3,3,3,3,3,3,0)
+	#var test_elecree = Elecree.new(3,3,3,3,3,3,0)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta):
