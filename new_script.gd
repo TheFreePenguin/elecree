@@ -1,13 +1,13 @@
 extends Node2D
 onready var global = get_node("/root/GlobalVars")
-
+onready var data = load("res://creatures.tres")
 
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("==[ Elecree v0.0.26 ]==")
+	print("==[ Elecree v0.0.27 ]==")
 	global.cutscenePlaying = true
-	#var test_elecree = Elecree.new(3,3,3,3,3,3,0)
+	print(data.attack_list)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 # func _process(delta):

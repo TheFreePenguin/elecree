@@ -26,5 +26,5 @@ func _process(delta):
 					var returnValue = cdata._calculateStats(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0)
 					print(returnValue)
 				else:
-					global.start_wild_battle(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0)
+					global.start_wild_battle(int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),int(rand_range(0, 5)),3,0,get_parent().get_node("Player").global_position,get_tree().current_scene.filename)
 

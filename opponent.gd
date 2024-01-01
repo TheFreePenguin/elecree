@@ -55,7 +55,7 @@ func sort_by_score(a, b) -> bool:
 	var scores: Array = get_attack_scores()
 	return scores[data.attacks.find(a)] < scores[data.attacks.find(b)]
 
-func enemy_ai_step_1() -> String:
+func enemy_ai() -> String:
 	var attacks: Array = data.attacks.duplicate()
 	attacks.sort_custom(self, "sort_by_score")
 	attacks.invert()

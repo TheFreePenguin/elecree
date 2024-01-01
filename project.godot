@@ -30,6 +30,7 @@ Global="*res://Global.tscn"
 GlobalVars="*res://globalVars.gd"
 Textbox="*res://textbox.tscn"
 TextboxScript="*res://textbox_script.gd"
+team="*res://team.tscn"
 
 [display]
 

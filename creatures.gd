@@ -1,5 +1,7 @@
 extends Resource
 
+const attack_list = [ "Tackle", "Defend"]
+const stamina_cost = [ 3,        0      ]
 
 const data = [{
   "name": "TestMonster",
@@ -13,7 +15,7 @@ const data = [{
   "basesp": 30,
   "basest": 30,
   "basexp": 50,
-  "attacks": ["a", "b", "c", "d", "e", "f", "g"]
+  "attacks": ["", "", "Tackle"]
 }]
 
 func _ready():

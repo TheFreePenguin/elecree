@@ -3,6 +3,8 @@ extends Resource
 class_name Elecree
 
 var dict = preload("res://creatures.tres").data
+var atk_list = preload("res://creatures.tres").attack_list
+var stamina_cost = preload("res://creatures.tres").stamina_cost
 
 enum StatusEffect {OK, Burn, Poison}
 
@@ -49,12 +51,17 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	attacks = generate_attacks(lv, id)
 
 func attack(target: Elecree, attack: String):
+	currentst -= stamina_cost[atk_list.find(attack)]
 	match attack:
 		"Tackle":
 			damage(target, 30)
+	recharge = 0
 
 func damage(target: Elecree, power: int):
-	var dmg: int = (power * level * (currentat / target.currentdf)) / 10
+	var dmg: int = (power * level * (float(currentat) / float(target.currentdf))) / 10
+	#print("Power" + str(power) + "Level" + str(level) + "Attack" + str(currentat) + "Defense" + str(target.currentdf))
+	target.currenthp -= dmg
+	print(target.currenthp)
 
 func generate_attacks(lv: int, id: int) -> Array:
 	var attacks: Array
@@ -70,3 +77,11 @@ func get_attack(lv: int, id: int) -> String:
 			return ""
 		else:
 			return dict[id].attacks[lv - 1]
+
+func heal():
+	currenthp = stathp
+	currentat = statat
+	currentdf = statdf
+	currentsp = statsp
+	currentst = statst
+	status = StatusEffect.OK
