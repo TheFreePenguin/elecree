@@ -3,6 +3,8 @@ extends Node2D
 signal z_press()
 var lock: int = 0
 var flavortext: bool = false
+onready var team = get_node("/root/team")
+onready var global = get_node("/root/GlobalVars")
 onready var dict = load("res://creatures.tres").data
 onready var player = $PlayerElecree.data
 onready var opponent = $OpposingElecree.data
@@ -15,6 +17,16 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("z_press")
 	
+	if player.currenthp <= 0:
+		player.heal()
+		#team.team[0] = player.duplicate(true)
+		global._warpPlayer(Vector2(64, 88), global.last_e_center)
+	
+	if opponent.currenthp <= 0:
+		#team.team[0] = player.duplicate()
+		print(team.team[0].currenthp)
+		global._warpPlayer(global.last_pos, global.last_loc)
+	
 	
 	if lock == 0:
 		player.recharge += player.currentsp / 144.00
@@ -24,7 +36,7 @@ func _process(delta):
 	
 	if lock == 1 && Input.is_action_just_pressed("ui_accept"):
 		lock = 2
-		get_node("Attack Selector").visible = true
+		get_node("Attack Selector").wait_and_show()
 	
 	#if lock == 2:
 		
@@ -34,6 +46,8 @@ func _process(delta):
 			lock = 1
 		elif opponent.recharge >= 100:
 			lock = -1
+			get_node("OpposingElecree").data.attack(get_node("PlayerElecree").data, get_node("OpposingElecree").enemy_ai())
+			lock = 0
 	
 	if lock == 1:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", Color(1.0, 1.0, 1.0))
@@ -59,7 +73,7 @@ func _process(delta):
 	get_node("CanvasLayer/OpponentHPBox/HP").text = "H: " + str(opponent.currenthp)
 	get_node("CanvasLayer/OpponentHPBox/SP").text = "S: " + str(opponent.currentst)
 	
-	if !flavortext:
+	if !flavortext || flavortext:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").text = dict[player.species].name
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").text = ":L" + str(player.level)
 		match player.status:

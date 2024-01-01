@@ -6,7 +6,10 @@ var currentPos: Vector2
 var cutscenePlaying: bool
 var closestInteractable: String = "null"
 var devCode: int = 0
-var devMode: bool = 0
+var devMode: bool = false
+var last_e_center: String = "rebirthECenter"
+var last_pos: Vector2
+var last_loc: String
 
 var wildgen: Array
 var wild: bool
@@ -22,14 +25,19 @@ func _ready():
 #	pass
 
 func _warpPlayer(destination: Vector2, destination_scene: String):
-	get_tree().change_scene("res://" + destination_scene + ".tscn")
+	if destination_scene.begins_with("res://"):
+		get_tree().change_scene(destination_scene)
+	else:
+		get_tree().change_scene("res://" + destination_scene + ".tscn")
 	yield(get_tree(), "idle_frame")
 	get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position = destination
 	get_node(String(get_tree().current_scene.get_path()) + "/Player/Sprite").global_position = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position
 	get_node(String(get_tree().current_scene.get_path()) + "/Player/CollisionShape2D").global_position = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position
 	
 
-func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id: int):
+func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id: int, lastPos: Vector2, lastLoc: String):
+	last_pos = lastPos
+	last_loc = lastLoc
 	get_tree().change_scene("res://battle.tscn")
 	wild = true
 	wildgen = [hp, at, df, sp, st, lv, id]

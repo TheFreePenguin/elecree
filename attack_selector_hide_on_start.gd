@@ -29,6 +29,13 @@ func _process(delta):
 	if self.visible && Input.is_action_just_pressed("ui_up"):
 		select -= 1 if get_attack(page, select - 1) != "" else 0
 	
+	if self.visible && Input.is_action_just_pressed("ui_accept"):
+		get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
+		self.visible = false
+		#get_node("TileMap").visible = false
+		get_parent().lock = 0
+	
+	
 	if select == 4:
 		page += 1
 		select = 1
@@ -40,3 +47,7 @@ func _process(delta):
 	get_node("VBoxContainer/Attack1").add_color_override("font_color", Color(1, 1, 1) if select == 1 else Color(0, 0, 0))
 	get_node("VBoxContainer/Attack2").add_color_override("font_color", Color(1, 1, 1) if select == 2 else Color(0, 0, 0))
 	get_node("VBoxContainer/Attack3").add_color_override("font_color", Color(1, 1, 1) if select == 3 else Color(0, 0, 0))
+
+func wait_and_show():
+	yield(get_tree(), "idle_frame")
+	visible = true

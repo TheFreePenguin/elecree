@@ -1,7 +1,6 @@
-extends Resource
+extends Node2D
 
-var team: Array = [Elecree.new(3,3,3,3,3,100,0), null, null, null, null, null, null ]
-export(int) var test_int: int = 5
+var team: Array = [Elecree.new(3,3,3,3,3,3,0), null, null, null, null, null, null ]
 
 func _init():
 	print("test")
