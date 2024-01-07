@@ -50,6 +50,9 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	level = lv
 	attacks = generate_attacks(lv, id)
 
+func get_stamina(attack: String):
+	return stamina_cost[atk_list.find(attack)]
+
 func attack(target: Elecree, attack: String):
 	currentst -= stamina_cost[atk_list.find(attack)]
 	match attack:
@@ -85,3 +88,6 @@ func heal():
 	currentsp = statsp
 	currentst = statst
 	status = StatusEffect.OK
+
+func get_name() -> String:
+	return dict[species].name

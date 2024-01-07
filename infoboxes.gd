@@ -17,21 +17,10 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("z_press")
 	
-	if player.currenthp <= 0:
-		player.heal()
-		#team.team[0] = player.duplicate(true)
-		global._warpPlayer(Vector2(64, 88), global.last_e_center)
-	
-	if opponent.currenthp <= 0:
-		#team.team[0] = player.duplicate()
-		print(team.team[0].currenthp)
-		global._warpPlayer(global.last_pos, global.last_loc)
-	
-	
 	if lock == 0:
-		player.recharge += player.currentsp / 144.00
+		player.recharge += player.currentsp * delta
 		player.recharge = 100 if player.recharge > 100 else player.recharge
-		opponent.recharge += opponent.currentsp / 144.00
+		opponent.recharge += opponent.currentsp * delta
 		opponent.recharge = 100 if opponent.recharge > 100 else opponent.recharge
 	
 	if lock == 1 && Input.is_action_just_pressed("ui_accept"):
@@ -46,8 +35,22 @@ func _process(delta):
 			lock = 1
 		elif opponent.recharge >= 100:
 			lock = -1
-			get_node("OpposingElecree").data.attack(get_node("PlayerElecree").data, get_node("OpposingElecree").enemy_ai())
+			var attack = get_node("OpposingElecree").enemy_ai()
+			get_node("OpposingElecree").data.attack(get_node("PlayerElecree").data, attack)
+			yield(display_text(["The opposing " + get_node("OpposingElecree").data.get_name() + " used " + attack + " !"]), "completed")
 			lock = 0
+	
+	if player.currenthp <= 0 && lock != -1:
+		player.heal()
+		global.cutscenePlaying = false
+		#team.team[0] = player.duplicate(true)
+		global._warpPlayer(Vector2(64, 88), global.last_e_center)
+	
+	if opponent.currenthp <= 0:
+		#team.team[0] = player.duplicate()
+		print(team.team[0].currenthp)
+		global.cutscenePlaying = false
+		global._warpPlayer(global.last_pos, global.last_loc)
 	
 	if lock == 1:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", Color(1.0, 1.0, 1.0))
@@ -73,7 +76,7 @@ func _process(delta):
 	get_node("CanvasLayer/OpponentHPBox/HP").text = "H: " + str(opponent.currenthp)
 	get_node("CanvasLayer/OpponentHPBox/SP").text = "S: " + str(opponent.currentst)
 	
-	if !flavortext || flavortext:
+	if !flavortext:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").text = dict[player.species].name
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Level").text = ":L" + str(player.level)
 		match player.status:
@@ -88,11 +91,14 @@ func _process(delta):
 		get_node("CanvasLayer/PlayerHPBox/SP").text = "S: " + str(player.currentst)
 
 func display_text(text: Array):
+	print("text should be displaying")
 	flavortext = true
-	get_node("CanvasLayer/InfoBox/HBoxContainer/Level").text = ""
-	get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = ""
-	get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").text = ""
+	get_node("CanvasLayer/InfoBox/HBoxContainer").hide()
+	get_node("CanvasLayer/InfoBox/FullBox").show()
 	for x in text:
-		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").text = x
+		get_node("CanvasLayer/InfoBox/FullBox").text = x
+		yield(get_tree(), "idle_frame")
 		yield(self, "z_press")
+	get_node("CanvasLayer/InfoBox/FullBox").hide()
+	get_node("CanvasLayer/InfoBox/HBoxContainer").show()
 	flavortext = false
