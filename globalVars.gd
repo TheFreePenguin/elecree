@@ -36,6 +36,7 @@ func _warpPlayer(destination: Vector2, destination_scene: String):
 	
 
 func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id: int, lastPos: Vector2, lastLoc: String):
+	cutscenePlaying = true
 	last_pos = lastPos
 	last_loc = lastLoc
 	get_tree().change_scene("res://battle.tscn")

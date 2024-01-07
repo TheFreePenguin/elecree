@@ -17,11 +17,17 @@ func get_attack(pg: int, number: int) -> String:
 		else:
 			return get_parent().get_node("PlayerElecree").data.attacks[order - 1]
 
+func get_attack_and_stamina(pg: int, number: int) -> String:
+	var attack = get_attack(pg, number)
+	if attack != "":
+		return attack + " (" + str(get_parent().get_node("PlayerElecree").data.get_stamina(attack)) + ")"
+	else:
+		return ""
 
 func _process(delta):
-	get_node("VBoxContainer/Attack1").text = get_attack(page, 1)
-	get_node("VBoxContainer/Attack2").text = get_attack(page, 2)
-	get_node("VBoxContainer/Attack3").text = get_attack(page, 3)
+	get_node("VBoxContainer/Attack1").text = get_attack_and_stamina(page, 1)
+	get_node("VBoxContainer/Attack2").text = get_attack_and_stamina(page, 2)
+	get_node("VBoxContainer/Attack3").text = get_attack_and_stamina(page, 3)
 	
 	if self.visible && Input.is_action_just_pressed("ui_down"):
 		select += 1 if get_attack(page, select + 1) != "" else 0
@@ -30,8 +36,9 @@ func _process(delta):
 		select -= 1 if get_attack(page, select - 1) != "" else 0
 	
 	if self.visible && Input.is_action_just_pressed("ui_accept"):
-		get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
 		self.visible = false
+		yield(get_parent().display_text([get_parent().get_node("PlayerElecree").data.get_name() + " used " + get_attack(page, select) + " !"]), "completed")
+		get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
 		#get_node("TileMap").visible = false
 		get_parent().lock = 0
 	

@@ -29,6 +29,14 @@ margin_top = 96.0
 margin_right = 240.0
 margin_bottom = 160.0
 
+[node name="FullBox" type="Label" parent="CanvasLayer/InfoBox"]
+visible = false
+margin_right = 240.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+autowrap = true
+
 [node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/InfoBox"]
 margin_right = 240.0
 margin_bottom = 16.0
@@ -42,27 +50,24 @@ text = "Mizukoi"
 
 [node name="Level" type="Label" parent="CanvasLayer/InfoBox/HBoxContainer"]
 margin_left = 59.0
-margin_right = 81.0
+margin_right = 59.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = ":L3"
 
 [node name="Status" type="Label" parent="CanvasLayer/InfoBox/HBoxContainer"]
-margin_left = 85.0
-margin_right = 105.0
+margin_left = 63.0
+margin_right = 63.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "OK"
 
 [node name="Recharge" type="Label" parent="CanvasLayer/InfoBox/HBoxContainer"]
-margin_left = 109.0
-margin_right = 135.0
+margin_left = 67.0
+margin_right = 67.0
 margin_bottom = 16.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "100"
 
 [node name="OpponentInfoBox" type="HBoxContainer" parent="CanvasLayer"]
 margin_right = 240.0
