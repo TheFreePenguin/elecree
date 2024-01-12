@@ -30,27 +30,36 @@ func _process(delta):
 	#if lock == 2:
 		
 	
-	if [-1, 0, 1].has(lock):
-		if player.recharge >= 100:
-			lock = 1
-		elif opponent.recharge >= 100:
-			lock = -1
-			var attack = get_node("OpposingElecree").enemy_ai()
-			get_node("OpposingElecree").data.attack(get_node("PlayerElecree").data, attack)
-			yield(display_text(["The opposing " + get_node("OpposingElecree").data.get_name() + " used " + attack + " !"]), "completed")
-			lock = 0
+	if get_node("PlayerElecree").data.currentst < 0:
+		get_node("PlayerElecree").data.currenthp += get_node("PlayerElecree").data.currentst
+		get_node("PlayerElecree").data.currentst = 0
 	
-	if player.currenthp <= 0 && lock != -1:
+	if get_node("OpposingElecree").data.currentst < 0:
+		get_node("OpposingElecree").data.currenthp += get_node("OpposingElecree").data.currentst
+		get_node("OpposingElecree").data.currentst = 0
+	
+	if player.currenthp <= 0 && !flavortext:
+		player.recharge = 0
 		player.heal()
 		global.cutscenePlaying = false
 		#team.team[0] = player.duplicate(true)
 		global._warpPlayer(Vector2(64, 88), global.last_e_center)
 	
-	if opponent.currenthp <= 0:
+	if opponent.currenthp <= 0 && !flavortext:
+		player.recharge = 0
 		#team.team[0] = player.duplicate()
 		print(team.team[0].currenthp)
 		global.cutscenePlaying = false
 		global._warpPlayer(global.last_pos, global.last_loc)
+	
+	if [0, 1].has(lock):
+		if player.recharge >= 100:
+			lock = 1
+		elif opponent.recharge >= 100:
+			lock = -1
+			var attack = get_node("OpposingElecree").enemy_ai()
+			yield(get_node("OpposingElecree").attack(get_node("PlayerElecree").data, attack), "completed")
+			lock = 0
 	
 	if lock == 1:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", Color(1.0, 1.0, 1.0))
