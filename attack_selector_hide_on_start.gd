@@ -36,9 +36,11 @@ func _process(delta):
 		select -= 1 if get_attack(page, select - 1) != "" else 0
 	
 	if self.visible && Input.is_action_just_pressed("ui_accept"):
+		var attack = get_attack(page, select)
+		var target = get_parent().get_node("OpposingElecree").data
 		self.visible = false
-		yield(get_parent().display_text([get_parent().get_node("PlayerElecree").data.get_name() + " used " + get_attack(page, select) + " !"]), "completed")
-		get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
+		yield(get_parent().get_node("PlayerElecree").attack(target, attack), "completed")
+		#get_parent().get_node("PlayerElecree").data.attack(get_parent().get_node("OpposingElecree").data, get_attack(page, select))
 		#get_node("TileMap").visible = false
 		get_parent().lock = 0
 	

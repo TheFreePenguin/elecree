@@ -60,3 +60,7 @@ func enemy_ai() -> String:
 	attacks.sort_custom(self, "sort_by_score")
 	attacks.invert()
 	return attacks[0]
+	
+func attack(target: Elecree, attack: String):
+	yield(get_parent().display_text(["The opposing " + data.get_name() + " used " + attack + "!"]), "completed")
+	data.attack(target, attack)
