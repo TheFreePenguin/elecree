@@ -17,7 +17,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("ui_accept"):
 		emit_signal("z_press")
 	
-	if lock == 0:
+	if lock == 0 && !flavortext:
 		player.recharge += player.currentsp * delta
 		player.recharge = 100 if player.recharge > 100 else player.recharge
 		opponent.recharge += opponent.currentsp * delta
@@ -28,7 +28,7 @@ func _process(delta):
 		get_node("Attack Selector").wait_and_show()
 	
 	#if lock == 2:
-		
+	
 	
 	if get_node("PlayerElecree").data.currentst < 0:
 		get_node("PlayerElecree").data.currenthp += get_node("PlayerElecree").data.currentst
@@ -39,27 +39,38 @@ func _process(delta):
 		get_node("OpposingElecree").data.currentst = 0
 	
 	if player.currenthp <= 0 && !flavortext:
+		yield(display_text([player.get_name() + " is defeated!"]), "completed")
 		player.recharge = 0
 		player.heal()
 		global.cutscenePlaying = false
 		#team.team[0] = player.duplicate(true)
 		global._warpPlayer(Vector2(64, 88), global.last_e_center)
 	
-	if opponent.currenthp <= 0 && !flavortext:
-		player.recharge = 0
-		#team.team[0] = player.duplicate()
-		print(team.team[0].currenthp)
-		global.cutscenePlaying = false
-		global._warpPlayer(global.last_pos, global.last_loc)
+#	if opponent.currenthp <= 0 && !flavortext:
+#		player.recharge = 0
+#		#team.team[0] = player.duplicate()
+#		print(team.team[0].currenthp)
+#		global.cutscenePlaying = false
+#		global._warpPlayer(global.last_pos, global.last_loc)
 	
 	if [0, 1].has(lock):
 		if player.recharge >= 100:
-			lock = 1
+			if player.status != 3:
+				lock = 1
+			else:
+				player.status = 0
+				player.recharge = 0
+				player.currentdf /= 1.5
 		elif opponent.recharge >= 100:
-			lock = -1
-			var attack = get_node("OpposingElecree").enemy_ai()
-			yield(get_node("OpposingElecree").attack(get_node("PlayerElecree").data, attack), "completed")
-			lock = 0
+			if opponent.status != 3:
+				lock = -1
+				var attack = get_node("OpposingElecree").enemy_ai()
+				yield(get_node("OpposingElecree").attack(get_node("PlayerElecree").data, attack), "completed")
+				lock = 0
+			else:
+				opponent.status = 0
+				opponent.recharge = 0
+				opponent.currentdf /= 1.5
 	
 	if lock == 1:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", Color(1.0, 1.0, 1.0))
@@ -81,6 +92,8 @@ func _process(delta):
 			get_node("CanvasLayer/OpponentInfoBox/Status").text = "Burn"
 		2:
 			get_node("CanvasLayer/OpponentInfoBox/Status").text = "Poison"
+		3:
+			get_node("CanvasLayer/OpponentInfoBox/Status").text = "Defend"
 	get_node("CanvasLayer/OpponentInfoBox/Recharge").text = str(int(opponent.recharge))
 	get_node("CanvasLayer/OpponentHPBox/HP").text = "H: " + str(opponent.currenthp)
 	get_node("CanvasLayer/OpponentHPBox/SP").text = "S: " + str(opponent.currentst)
@@ -95,19 +108,34 @@ func _process(delta):
 				get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = "Burn"
 			2:
 				get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = "Poison"
+			3:
+				get_node("CanvasLayer/InfoBox/HBoxContainer/Status").text = "Defend"
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Recharge").text = str(int(player.recharge))
 		get_node("CanvasLayer/PlayerHPBox/HP").text = "H: " + str(player.currenthp)
 		get_node("CanvasLayer/PlayerHPBox/SP").text = "S: " + str(player.currentst)
 
+func refresh_creatures():
+	player = $PlayerElecree.data
+	opponent = $OpposingElecree.data
+
+
 func display_text(text: Array):
-	print("text should be displaying")
+	print("text should be displaying" + text[0])
 	flavortext = true
 	get_node("CanvasLayer/InfoBox/HBoxContainer").hide()
 	get_node("CanvasLayer/InfoBox/FullBox").show()
 	for x in text:
-		get_node("CanvasLayer/InfoBox/FullBox").text = x
-		yield(get_tree(), "idle_frame")
-		yield(self, "z_press")
+		if x != "":
+			get_node("CanvasLayer/InfoBox/FullBox").text = x
+			yield(get_tree(), "idle_frame")
+			yield(self, "z_press")
 	get_node("CanvasLayer/InfoBox/FullBox").hide()
 	get_node("CanvasLayer/InfoBox/HBoxContainer").show()
 	flavortext = false
+
+func win_battle():
+	player.recharge = 0
+	#team.team[0] = player.duplicate()
+	#print(team.team[0].currenthp)
+	global.cutscenePlaying = false
+	global._warpPlayer(global.last_pos, global.last_loc)

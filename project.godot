@@ -13,9 +13,27 @@ _global_script_classes=[ {
 "class": "Elecree",
 "language": "GDScript",
 "path": "res://elecree-class.gd"
+}, {
+"base": "Node2D",
+"class": "ElecreeNode",
+"language": "GDScript",
+"path": "res://elecree-node.gd"
+}, {
+"base": "Node",
+"class": "ElecreeStatic",
+"language": "GDScript",
+"path": "res://elecreestatic.gd"
+}, {
+"base": "Object",
+"class": "LevelUp",
+"language": "GDScript",
+"path": "res://levelup.gd"
 } ]
 _global_script_class_icons={
-"Elecree": ""
+"Elecree": "",
+"ElecreeNode": "",
+"ElecreeStatic": "",
+"LevelUp": ""
 }
 
 [application]

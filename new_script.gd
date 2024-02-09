@@ -5,7 +5,7 @@ onready var data = load("res://creatures.tres")
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	print("==[ Elecree v0.0.29 ]==")
+	print("==[ Elecree v0.0.30 ]==")
 	global.cutscenePlaying = true
 	print(data.attack_list)
 
