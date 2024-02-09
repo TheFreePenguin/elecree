@@ -15,13 +15,15 @@ var stamina_80: Array = []
 var stamina_90: Array = []
 var high_stamina: Array = []
 
+var party: Array = [null, null, null, null, null, null, null]
 var data: Elecree
 var test_int: int = 4
 
 func _ready():
 	if global.wild:
 		print(wildgen)
-		data = Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6])
+		party = [Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6]), Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6]), null, null, null, null, null]
+		data = party[0]
 
 func get_attack_scores() -> Array:
 	var attacks: Array = data.attacks.duplicate()
@@ -59,8 +61,31 @@ func enemy_ai() -> String:
 	var attacks: Array = data.attacks.duplicate()
 	attacks.sort_custom(self, "sort_by_score")
 	attacks.invert()
-	return attacks[0]
+	return get_weighted_random(attacks)
 	
 func attack(target: Elecree, attack: String):
 	yield(get_parent().display_text(["The opposing " + data.get_name() + " used " + attack + "!"]), "completed")
 	data.attack(target, attack)
+
+var displaying_text: bool = false
+
+func get_weighted_random(array: Array):
+	randomize()
+	for i in array:
+		if randi() % 2 == 0:
+			return i
+	return array[-1]
+
+func _process(delta: float):
+	if data.currenthp <= 0 && !displaying_text && get_parent().get_node("PlayerElecree").data.currenthp > 0:
+		displaying_text = true
+		yield(get_parent().display_text(["The opposing " + data.get_name() + " is defeated!"]), "completed")
+		if ElecreeStatic.get_alive_creatures(party) != 0:
+			yield(get_parent().display_text([data.get_name() + " was sent out!"]), "completed")
+			data = party[ElecreeStatic.select_next_alive_creature(party)]
+			get_parent().refresh_creatures()
+			#print(data.currenthp)
+			displaying_text = false
+		else:
+			displaying_text = false
+			get_parent().win_battle()

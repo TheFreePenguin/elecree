@@ -6,7 +6,7 @@ var dict = preload("res://creatures.tres").data
 var atk_list = preload("res://creatures.tres").attack_list
 var stamina_cost = preload("res://creatures.tres").stamina_cost
 
-enum StatusEffect {OK, Burn, Poison}
+enum StatusEffect {OK, Burn, Poison, Defend}
 
 export(int) var stathp: int
 export(int) var statat: int
@@ -23,6 +23,11 @@ export(int) var status: int
 export(int) var level: int
 export(float) var recharge: float
 export(Array) var attacks: Array
+var dna_hp: int
+var dna_at: int
+var dna_df: int
+var dna_sp: int
+var dna_st: int
 
 
 func burn():
@@ -39,6 +44,11 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	statdf = int ((dict[id].basedf * lv) / 10) + ( dnadf * lv )
 	statsp = int ((dict[id].basesp * lv) / 10) + ( dnasp * lv )
 	statst = int ((dict[id].basest * lv) / 10) + ( dnast * lv )
+	dna_hp = dnahp
+	dna_at = dnaat
+	dna_df = dnadf
+	dna_sp = dnasp
+	dna_st = dnast
 	species = id
 	currenthp = stathp
 	currentat = statat
@@ -53,18 +63,29 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 func get_stamina(attack: String):
 	return stamina_cost[atk_list.find(attack)]
 
-func attack(target: Elecree, attack: String):
+func attack(target: Elecree, attack: String) -> Array:
 	currentst -= stamina_cost[atk_list.find(attack)]
+	recharge = 0
 	match attack:
 		"Tackle":
 			damage(target, 30)
-	recharge = 0
+			return [""]
+		"Defend":
+			if status != 0:
+				return ["But it failed!"]
+			else:
+				status = 3
+				currentdf *= 1.5
+				return [""]
+		_:
+			return [""]
+
 
 func damage(target: Elecree, power: int):
 	var dmg: int = (power * level * (float(currentat) / float(target.currentdf))) / 10
 	#print("Power" + str(power) + "Level" + str(level) + "Attack" + str(currentat) + "Defense" + str(target.currentdf))
 	target.currenthp -= dmg
-	print(target.currenthp)
+	#print(target.currenthp)
 
 func generate_attacks(lv: int, id: int) -> Array:
 	var attacks: Array
@@ -88,6 +109,15 @@ func heal():
 	currentsp = statsp
 	currentst = statst
 	status = StatusEffect.OK
+
+#func level_up():
+#	level += 1
+#	var fully_healed: Elecree = LevelUp.get_elecree(dna_hp, dna_at, dna_df, dna_sp, dna_st)
+#	stathp = fully_healed.stathp
+#	statat = fully_healed.statat
+#	statdf = fully_healed.statdf
+#	statsp = fully_healed.statsp
+#	statst = fully_healed.statst
 
 func get_name() -> String:
 	return dict[species].name
