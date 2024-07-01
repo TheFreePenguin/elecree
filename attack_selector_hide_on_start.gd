@@ -1,7 +1,6 @@
 extends CanvasLayer
 
 var page: int = 0
-
 var select: int = 1
 
 func _ready():

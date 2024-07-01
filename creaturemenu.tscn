@@ -1,0 +1,135 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
+[ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
+[ext_resource path="res://creature_selector.gd" type="Script" id=3]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 3 )
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="CanvasLayer"]
+margin_right = 240.0
+margin_bottom = 160.0
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 87, 0, 1, 88, 0, 2, 88, 0, 3, 88, 0, 4, 88, 0, 5, 88, 0, 6, 88, 0, 7, 88, 0, 8, 88, 0, 9, 88, 0, 10, 88, 0, 11, 88, 0, 12, 88, 0, 13, 88, 0, 14, 89, 0, 65536, 90, 0, 65537, 91, 0, 65538, 91, 0, 65539, 91, 0, 65540, 91, 0, 65541, 91, 0, 65542, 91, 0, 65543, 91, 0, 65544, 91, 0, 65545, 91, 0, 65546, 91, 0, 65547, 91, 0, 65548, 91, 0, 65549, 91, 0, 65550, 92, 0, 131072, 90, 0, 131073, 91, 0, 131074, 91, 0, 131075, 91, 0, 131076, 91, 0, 131077, 91, 0, 131078, 91, 0, 131079, 91, 0, 131080, 91, 0, 131081, 91, 0, 131082, 91, 0, 131083, 91, 0, 131084, 91, 0, 131085, 91, 0, 131086, 92, 0, 196608, 90, 0, 196609, 91, 0, 196610, 91, 0, 196611, 91, 0, 196612, 91, 0, 196613, 91, 0, 196614, 91, 0, 196615, 91, 0, 196616, 91, 0, 196617, 91, 0, 196618, 91, 0, 196619, 91, 0, 196620, 91, 0, 196621, 91, 0, 196622, 92, 0, 262144, 90, 0, 262145, 91, 0, 262146, 91, 0, 262147, 91, 0, 262148, 91, 0, 262149, 91, 0, 262150, 91, 0, 262151, 91, 0, 262152, 91, 0, 262153, 91, 0, 262154, 91, 0, 262155, 91, 0, 262156, 91, 0, 262157, 91, 0, 262158, 92, 0, 327680, 90, 0, 327681, 91, 0, 327682, 91, 0, 327683, 91, 0, 327684, 91, 0, 327685, 91, 0, 327686, 91, 0, 327687, 91, 0, 327688, 91, 0, 327689, 91, 0, 327690, 91, 0, 327691, 91, 0, 327692, 91, 0, 327693, 91, 0, 327694, 92, 0, 393216, 90, 0, 393217, 91, 0, 393218, 91, 0, 393219, 91, 0, 393220, 91, 0, 393221, 91, 0, 393222, 91, 0, 393223, 91, 0, 393224, 91, 0, 393225, 91, 0, 393226, 91, 0, 393227, 91, 0, 393228, 91, 0, 393229, 91, 0, 393230, 92, 0, 458752, 90, 0, 458753, 91, 0, 458754, 91, 0, 458755, 91, 0, 458756, 91, 0, 458757, 91, 0, 458758, 91, 0, 458759, 91, 0, 458760, 91, 0, 458761, 91, 0, 458762, 91, 0, 458763, 91, 0, 458764, 91, 0, 458765, 91, 0, 458766, 92, 0, 524288, 90, 0, 524289, 91, 0, 524290, 91, 0, 524291, 91, 0, 524292, 91, 0, 524293, 91, 0, 524294, 91, 0, 524295, 91, 0, 524296, 91, 0, 524297, 91, 0, 524298, 91, 0, 524299, 91, 0, 524300, 91, 0, 524301, 91, 0, 524302, 92, 0, 589824, 93, 0, 589825, 94, 0, 589826, 94, 0, 589827, 94, 0, 589828, 94, 0, 589829, 94, 0, 589830, 94, 0, 589831, 94, 0, 589832, 94, 0, 589833, 94, 0, 589834, 94, 0, 589835, 94, 0, 589836, 94, 0, 589837, 94, 0, 589838, 95, 0 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer"]
+margin_right = 40.0
+margin_bottom = 40.0
+
+[node name="Label" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_right = 40.0
+margin_bottom = 16.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "1"
+
+[node name="Label2" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 20.0
+margin_right = 40.0
+margin_bottom = 36.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "2"
+
+[node name="Label3" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 40.0
+margin_right = 40.0
+margin_bottom = 56.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "3"
+
+[node name="Label4" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 60.0
+margin_right = 40.0
+margin_bottom = 76.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "4"
+
+[node name="Label5" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 80.0
+margin_right = 40.0
+margin_bottom = 96.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "5"
+
+[node name="Label6" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 100.0
+margin_right = 40.0
+margin_bottom = 116.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "6"
+
+[node name="Label7" type="Label" parent="CanvasLayer/VBoxContainer"]
+margin_top = 120.0
+margin_right = 40.0
+margin_bottom = 136.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "7"
+
+[node name="CreatureDetails" type="Node2D" parent="CanvasLayer"]
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer/CreatureDetails"]
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 0, 87, 0, 1, 88, 0, 2, 88, 0, 3, 88, 0, 4, 89, 0, 5, 87, 0, 6, 88, 0, 7, 88, 0, 8, 88, 0, 9, 88, 0, 10, 88, 0, 11, 88, 0, 12, 88, 0, 13, 88, 0, 14, 89, 0, 65536, 90, 0, 65537, 91, 0, 65538, 91, 0, 65539, 91, 0, 65540, 92, 0, 65541, 93, 0, 65542, 94, 0, 65543, 94, 0, 65544, 94, 0, 65545, 94, 0, 65546, 94, 0, 65547, 94, 0, 65548, 94, 0, 65549, 94, 0, 65550, 95, 0, 131072, 90, 0, 131073, 91, 0, 131074, 91, 0, 131075, 91, 0, 131076, 92, 0, 131077, 87, 0, 131078, 88, 0, 131079, 88, 0, 131080, 88, 0, 131081, 88, 0, 131082, 88, 0, 131083, 88, 0, 131084, 88, 0, 131085, 88, 0, 131086, 89, 0, 196608, 90, 0, 196609, 91, 0, 196610, 91, 0, 196611, 91, 0, 196612, 92, 0, 196613, 90, 0, 196614, 91, 0, 196615, 91, 0, 196616, 91, 0, 196617, 91, 0, 196618, 91, 0, 196619, 91, 0, 196620, 91, 0, 196621, 91, 0, 196622, 92, 0, 262144, 93, 0, 262145, 94, 0, 262146, 94, 0, 262147, 94, 0, 262148, 95, 0, 262149, 90, 0, 262150, 91, 0, 262151, 91, 0, 262152, 91, 0, 262153, 91, 0, 262154, 91, 0, 262155, 91, 0, 262156, 91, 0, 262157, 91, 0, 262158, 92, 0, 327680, 87, 0, 327681, 88, 0, 327682, 88, 0, 327683, 88, 0, 327684, 89, 0, 327685, 90, 0, 327686, 91, 0, 327687, 91, 0, 327688, 91, 0, 327689, 91, 0, 327690, 91, 0, 327691, 91, 0, 327692, 91, 0, 327693, 91, 0, 327694, 92, 0, 393216, 90, 0, 393217, 91, 0, 393218, 91, 0, 393219, 91, 0, 393220, 92, 0, 393221, 90, 0, 393222, 91, 0, 393223, 91, 0, 393224, 91, 0, 393225, 91, 0, 393226, 91, 0, 393227, 91, 0, 393228, 91, 0, 393229, 91, 0, 393230, 92, 0, 458752, 90, 0, 458753, 91, 0, 458754, 91, 0, 458755, 91, 0, 458756, 92, 0, 458757, 90, 0, 458758, 91, 0, 458759, 91, 0, 458760, 91, 0, 458761, 91, 0, 458762, 91, 0, 458763, 91, 0, 458764, 91, 0, 458765, 91, 0, 458766, 92, 0, 524288, 90, 0, 524289, 91, 0, 524290, 91, 0, 524291, 91, 0, 524292, 92, 0, 524293, 90, 0, 524294, 91, 0, 524295, 91, 0, 524296, 91, 0, 524297, 91, 0, 524298, 91, 0, 524299, 91, 0, 524300, 91, 0, 524301, 91, 0, 524302, 92, 0, 589824, 93, 0, 589825, 94, 0, 589826, 94, 0, 589827, 94, 0, 589828, 95, 0, 589829, 93, 0, 589830, 94, 0, 589831, 94, 0, 589832, 94, 0, 589833, 94, 0, 589834, 94, 0, 589835, 94, 0, 589836, 94, 0, 589837, 94, 0, 589838, 95, 0 )
+
+[node name="Stats" type="Label" parent="CanvasLayer/CreatureDetails"]
+margin_left = 1.0
+margin_top = 80.0
+margin_right = 79.0
+margin_bottom = 159.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_constants/line_spacing = 0
+custom_fonts/font = ExtResource( 2 )
+text = "HP
+AT
+DF
+SP
+ST"
+autowrap = true
+
+[node name="ID" type="Label" parent="CanvasLayer/CreatureDetails"]
+margin_top = 62.0
+margin_right = 79.0
+margin_bottom = 78.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "No. XX"
+align = 1
+
+[node name="NameAndLevel" type="Label" parent="CanvasLayer/CreatureDetails"]
+margin_left = 81.0
+margin_top = 1.0
+margin_right = 238.0
+margin_bottom = 30.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "Creature :L99"
+
+[node name="Attacks" type="Label" parent="CanvasLayer/CreatureDetails"]
+margin_left = 81.0
+margin_top = 33.0
+margin_right = 238.0
+margin_bottom = 158.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "A
+B
+C
+D
+E
+F"
