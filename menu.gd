@@ -33,6 +33,11 @@ func _process(delta):
 			1:
 				pass
 			2:
+				self.visible = false
+				TeamScreen.reboot()
+				TeamScreen.show_items()
+				menu_number = 7
+				get_node("VBoxContainer/Label" + String(2)).add_color_override("font_color",Color(0, 0, 0, 1))
 				pass
 			3:
 				pass

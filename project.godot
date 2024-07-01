@@ -10,6 +10,11 @@ config_version=4
 
 _global_script_classes=[ {
 "base": "Resource",
+"class": "Creatures",
+"language": "GDScript",
+"path": "res://creatures.gd"
+}, {
+"base": "Resource",
 "class": "Elecree",
 "language": "GDScript",
 "path": "res://elecree-class.gd"
@@ -30,6 +35,7 @@ _global_script_classes=[ {
 "path": "res://levelup.gd"
 } ]
 _global_script_class_icons={
+"Creatures": "",
 "Elecree": "",
 "ElecreeNode": "",
 "ElecreeStatic": "",
@@ -49,6 +55,7 @@ GlobalVars="*res://globalVars.gd"
 Textbox="*res://textbox.tscn"
 TextboxScript="*res://textbox_script.gd"
 team="*res://team.tscn"
+TeamScreen="*res://creaturemenu.tscn"
 
 [display]
 

@@ -1,4 +1,5 @@
 extends Resource
+class_name Creatures
 
 const attack_list = [ "Tackle", "Defend"]
 const stamina_cost = [ 3,        0      ]
