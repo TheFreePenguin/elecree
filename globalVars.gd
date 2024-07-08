@@ -24,8 +24,10 @@ func _ready():
 #func _process(delta):
 #	pass
 
-func _warpPlayer(destination: Vector2, destination_scene: String):
-	if destination_scene.begins_with("res://"):
+func _warpPlayer(destination: Vector2, destination_scene: String, relative: bool = false):
+	if relative:
+		destination += get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position
+	if destination_scene.begins_with("res://"): 
 		get_tree().change_scene(destination_scene)
 	else:
 		get_tree().change_scene("res://" + destination_scene + ".tscn")
