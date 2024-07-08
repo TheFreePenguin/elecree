@@ -90,9 +90,10 @@ func _process(delta: float):
 			in_details = true
 			var cdetails := get_node("CanvasLayer/CreatureDetails")
 			cdetails.show()
-			print("first frame is " + str(first_frame))
-			cdetails.creature_changed()
+			#print("first frame is " + str(first_frame))
 			cdetails.creature = creature
+			cdetails.creature_changed()
+			#print(str(creature) + ", " + str(cdetails.creature))
 	if get_node("CanvasLayer").visible:
 		first_frame = false
 	

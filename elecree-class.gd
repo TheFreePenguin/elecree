@@ -58,7 +58,7 @@ func _init(dnahp: int, dnaat: int, dnadf: int, dnasp: int, dnast: int, lv: int, 
 	recharge = 0
 	status = StatusEffect.OK
 	level = lv
-	print("Generating attacks with level " + str(lv))
+	#print("Generating attacks with level " + str(lv))
 	attacks = generate_attacks(lv, id)
 
 func get_stamina(attack: String):
@@ -92,7 +92,7 @@ func generate_attacks(lv: int, id: int) -> Array:
 	var attacks: Array
 	for i in range(0, lv):
 		var new_attack: String = get_attack(i + 1, id)
-		print("Adding new attack " + new_attack)
+		#print("Adding new attack " + new_attack)
 		if new_attack != "":
 			attacks.push_back(new_attack)
 	print("Attacks" + str(attacks))
