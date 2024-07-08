@@ -23,7 +23,7 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("ui_down"):
 			var ecreature: Elecree = team.team[creature]
 			if attack == 5:
-				print("offsetting")
+				#print("offsetting")
 				offset += 1 if attack + offset + 1 <= ecreature.attacks.size() else 0
 			else:
 				attack += 1 if attack + offset + 1 <= ecreature.attacks.size() else 0
@@ -31,7 +31,7 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("ui_up"):
 			var ecreature: Elecree = team.team[creature]
 			if attack == 1:
-				print("offsetting")
+				#print("offsetting")
 				offset -= 1 if attack + offset - 1 > 0 else 0
 			else:
 				attack -= 1 if attack + offset - 1 > 0 else 0
@@ -40,16 +40,18 @@ func _process(delta: float):
 func creature_changed():
 	attack = 1
 	offset = 0
+	print(creature)
 	var ecreature: Elecree = team.team[creature]
 	get_node("Stats").text = "HP: " + str(ecreature.stathp) + "\n" + "AT: " + str(ecreature.statat) + "\n" + "DF: " + str(ecreature.statdf) + "\n" + "SP: " + str(ecreature.statsp) + "\n" + "ST: " + str(ecreature.statst) 
 	get_node("ID").text = "No. " + str(ecreature.species)
 	get_node("NameAndLevel").text = ecreature.get_name() + " :L" + str(ecreature.level)
 	get_node("Attacks").bbcode_text = color_lines(1)
-	print(get_node("Attacks").bbcode_enabled)
+	#print(get_node("Attacks").bbcode_enabled)
 
 func change_creature(by: int):
 	creature += by
-	creature %= get_parent().get_parent().creatures
+	#print("-5 % 2 = " + str(-5 % 2))
+	creature = (creature % get_parent().get_parent().creatures) if creature >= 0 else (creature % get_parent().get_parent().creatures) + get_parent().get_parent().creatures
 	creature_changed()
 
 func color_lines(number: int) -> String:
@@ -64,14 +66,14 @@ func color_lines(number: int) -> String:
 
 func get_first_five_attacks(elecree: Elecree, _offset: int = 0) -> String:
 	var st: String = "Attacks:\n"
-	print("Offset: " + str(offset))
-	print("Attack size: " + str(elecree.attacks.size()))
+	#print("Offset: " + str(offset))
+	#print("Attack size: " + str(elecree.attacks.size()))
 	for at in elecree.attacks.size():
 		if at < _offset:
 			continue
 		st += elecree.attacks[at]
-		print("Adding " + elecree.attacks[at])
-		print("Size is " + str(st.split("\n").size()))
+		#print("Adding " + elecree.attacks[at])
+		#print("Size is " + str(st.split("\n").size()))
 		if st.split("\n").size() >= 6:
 			break
 		st += "\n"
