@@ -74,14 +74,20 @@ func get_name_of_creature(elecree: Elecree) -> String:
 	text += str(elecree.level)
 	return text
 	
+
+func size_without_nulls(arr: Array) -> int:
+	var i: int = 0
+	for a in arr:
+		if a != null:
+			i += 1
+	return i
+
 func _process(delta: float):
 	if get_node("CanvasLayer").visible && !in_details && !first_frame:
 		if Input.is_action_just_pressed("ui_down"):
-			creature += 1
-			creature = creature % creatures
+			creature += 1 if creature + 1 < size_without_nulls(team.team) else 0
 		if Input.is_action_just_pressed("ui_up"):
-			creature -= 1
-			creature = creature % creatures
+			creature -= 1 if creature - 1 >= 0 else 0
 		if Input.is_action_just_pressed("ui_cancel"):
 			hide_items()
 			GlobalVars.cutscenePlaying = false

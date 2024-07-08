@@ -51,7 +51,8 @@ func creature_changed():
 func change_creature(by: int):
 	creature += by
 	#print("-5 % 2 = " + str(-5 % 2))
-	creature = (creature % get_parent().get_parent().creatures) if creature >= 0 else (creature % get_parent().get_parent().creatures) + get_parent().get_parent().creatures
+	creature = (creature % get_parent().get_parent().creatures) if creature >= 0 || get_parent().get_parent().creatures == 1 else (creature % get_parent().get_parent().creatures) + get_parent().get_parent().creatures
+	print("creature is " + str(creature))
 	creature_changed()
 
 func color_lines(number: int) -> String:
