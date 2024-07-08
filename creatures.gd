@@ -16,7 +16,7 @@ const data = [{
   "basesp": 30,
   "basest": 30,
   "basexp": 50,
-  "attacks": ["", "", "Tackle"]
+  "attacks": ["Tackle"]
 }]
 
 func _ready():

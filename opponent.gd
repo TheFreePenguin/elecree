@@ -22,7 +22,7 @@ var test_int: int = 4
 func _ready():
 	if global.wild:
 		print(wildgen)
-		party = [Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6]), Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6]), null, null, null, null, null]
+		party = [Elecree.new(wildgen[0], wildgen[1], wildgen[2], wildgen[3], wildgen[4], wildgen[5], wildgen[6]), null, null, null, null, null, null]
 		data = party[0]
 
 func get_attack_scores() -> Array:

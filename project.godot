@@ -9,6 +9,16 @@
 config_version=4
 
 _global_script_classes=[ {
+"base": "Node2D",
+"class": "CreatureDetails",
+"language": "GDScript",
+"path": "res://creature_details.gd"
+}, {
+"base": "Node2D",
+"class": "CreatureSelector",
+"language": "GDScript",
+"path": "res://creature_selector.gd"
+}, {
 "base": "Resource",
 "class": "Creatures",
 "language": "GDScript",
@@ -35,6 +45,8 @@ _global_script_classes=[ {
 "path": "res://levelup.gd"
 } ]
 _global_script_class_icons={
+"CreatureDetails": "",
+"CreatureSelector": "",
 "Creatures": "",
 "Elecree": "",
 "ElecreeNode": "",

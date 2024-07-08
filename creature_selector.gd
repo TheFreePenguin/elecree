@@ -1,10 +1,13 @@
 extends Node2D
+class_name CreatureSelector
 
 var creature: int
 var labels: Array
 var creatures: int
 var dictionaries: Array
 var team_of_creatures: Array
+var in_details: bool = false
+var first_frame: bool = true
 
 	
 
@@ -12,19 +15,26 @@ func hide_items():
 	get_node("CanvasLayer").hide()
 	get_node("CanvasLayer/TileMap").hide()
 
+
 func show_items():
 	get_node("CanvasLayer").show()
 	get_node("CanvasLayer/TileMap").show()
 
 func _ready():
+	get_node("CanvasLayer").connect("visibility_changed", self, "on_hide")
+	reboot()
+
+func on_hide():
+	if !get_node("CanvasLayer").visible:
+		print("On hide")
+		first_frame = true
+
+func reboot():
 	hide_items()
 	labels = [get_node("CanvasLayer/VBoxContainer/Label"), get_node("CanvasLayer/VBoxContainer/Label2"), get_node("CanvasLayer/VBoxContainer/Label3"), get_node("CanvasLayer/VBoxContainer/Label4"), get_node("CanvasLayer/VBoxContainer/Label5"), get_node("CanvasLayer/VBoxContainer/Label6"), get_node("CanvasLayer/VBoxContainer/Label7")]
 	dictionaries = load("res://creatures.tres").data
 	set_texts(team.team)
 	creatures = get_length_of_creature_list(get_texts(labels))
-
-func reboot():
-	_ready()
 
 func set_texts(array: Array):
 	print(labels.size())
@@ -65,7 +75,7 @@ func get_name_of_creature(elecree: Elecree) -> String:
 	return text
 	
 func _process(delta: float):
-	if get_node("CanvasLayer").visible:
+	if get_node("CanvasLayer").visible && !in_details && !first_frame:
 		if Input.is_action_just_pressed("ui_down"):
 			creature += 1
 			creature = creature % creatures
@@ -75,6 +85,16 @@ func _process(delta: float):
 		if Input.is_action_just_pressed("ui_cancel"):
 			hide_items()
 			GlobalVars.cutscenePlaying = false
+			first_frame = true
+		if Input.is_action_just_pressed("ui_accept"):
+			in_details = true
+			var cdetails := get_node("CanvasLayer/CreatureDetails")
+			cdetails.show()
+			print("first frame is " + str(first_frame))
+			cdetails.creature_changed()
+			cdetails.creature = creature
+	if get_node("CanvasLayer").visible:
+		first_frame = false
 	
 	for l in labels.size():
 		if l == creature:

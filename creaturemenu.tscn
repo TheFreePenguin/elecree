@@ -1,8 +1,9 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
 [ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
 [ext_resource path="res://creature_selector.gd" type="Script" id=3]
+[ext_resource path="res://creature_details.gd" type="Script" id=4]
 
 [node name="Node2D" type="Node2D"]
 script = ExtResource( 3 )
@@ -14,7 +15,6 @@ margin_right = 240.0
 margin_bottom = 160.0
 
 [node name="TileMap" type="TileMap" parent="CanvasLayer"]
-visible = false
 tile_set = ExtResource( 1 )
 cell_size = Vector2( 16, 16 )
 format = 1
@@ -80,6 +80,8 @@ custom_fonts/font = ExtResource( 2 )
 text = "7"
 
 [node name="CreatureDetails" type="Node2D" parent="CanvasLayer"]
+visible = false
+script = ExtResource( 4 )
 
 [node name="TileMap" type="TileMap" parent="CanvasLayer/CreatureDetails"]
 tile_set = ExtResource( 1 )
@@ -120,16 +122,12 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Creature :L99"
 
-[node name="Attacks" type="Label" parent="CanvasLayer/CreatureDetails"]
+[node name="Attacks" type="RichTextLabel" parent="CanvasLayer/CreatureDetails"]
 margin_left = 81.0
 margin_top = 33.0
 margin_right = 238.0
 margin_bottom = 158.0
-custom_colors/font_color = Color( 0, 0, 0, 1 )
-custom_fonts/font = ExtResource( 2 )
-text = "A
-B
-C
-D
-E
-F"
+custom_colors/default_color = Color( 0, 0, 0, 1 )
+custom_constants/line_separation = 4
+custom_fonts/normal_font = ExtResource( 2 )
+bbcode_enabled = true

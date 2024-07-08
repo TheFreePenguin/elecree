@@ -18,7 +18,7 @@ func _ready():
 
 func _process(delta):
 	
-	if get_cellv(world_to_map(get_parent().get_node("Player/Sprite").global_position)) == 33:
+	if get_cellv(world_to_map(get_parent().get_node("Player/Sprite").global_position)) == 33: # tall grass
 		randomEncounter = int(rand_range(1, 120))
 		if randomEncounter == 69:
 			if get_parent().get_node("Player").isMoving && !global.cutscenePlaying:
