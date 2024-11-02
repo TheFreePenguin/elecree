@@ -36,6 +36,9 @@ func reboot():
 	set_texts(team.team)
 	creatures = get_length_of_creature_list(get_texts(labels))
 
+func better_modulus(value: int, modulus: int) -> int:
+	return (value % modulus) if value >= 0 || modulus == 1 else (value % modulus) + modulus
+
 func set_texts(array: Array):
 	print(labels.size())
 	for creature in array.size():
@@ -85,9 +88,11 @@ func size_without_nulls(arr: Array) -> int:
 func _process(delta: float):
 	if get_node("CanvasLayer").visible && !in_details && !first_frame:
 		if Input.is_action_just_pressed("ui_down"):
-			creature += 1 if creature + 1 < size_without_nulls(team.team) else 0
+			creature += 1
+			creature = better_modulus(creature, size_without_nulls(team.team))
 		if Input.is_action_just_pressed("ui_up"):
-			creature -= 1 if creature - 1 >= 0 else 0
+			creature -= 1
+			creature = better_modulus(creature, size_without_nulls(team.team))
 		if Input.is_action_just_pressed("ui_cancel"):
 			hide_items()
 			GlobalVars.cutscenePlaying = false

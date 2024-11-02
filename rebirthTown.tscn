@@ -1,17 +1,12 @@
-[gd_scene load_steps=27 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://playermove.gd" type="Script" id=1]
 [ext_resource path="res://charmove.gd" type="Script" id=2]
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=3]
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=4]
-[ext_resource path="res://warp_rebirth_1.gd" type="Script" id=5]
+[ext_resource path="res://warp.gd" type="Script" id=5]
 [ext_resource path="res://rebirthTown.gd" type="Script" id=6]
 [ext_resource path="res://getTileType.gd" type="Script" id=7]
-[ext_resource path="res://warpRebirthToHouse1.gd" type="Script" id=8]
-[ext_resource path="res://warp_rebirth_h2.gd" type="Script" id=9]
-[ext_resource path="res://warp_rebirth_h3.gd" type="Script" id=10]
-[ext_resource path="res://warp_rebirth_h4.gd" type="Script" id=11]
-[ext_resource path="res://warp_rebirth_ec.gd" type="Script" id=12]
 [ext_resource path="res://loresign.gd" type="Script" id=13]
 
 [sub_resource type="RectangleShape2D" id=11]
@@ -168,28 +163,36 @@ tile_data = PoolIntArray( -720904, 29, 0, -720903, 27, 0, -720902, 29, 0, -72090
 script = ExtResource( 7 )
 
 [node name="House 1 Warp Zone" type="Area2D" parent="."]
-script = ExtResource( 8 )
+script = ExtResource( 5 )
+destination = "rebirthHouse1"
+coord = Vector2( 64, 110 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House 1 Warp Zone"]
 position = Vector2( 104, 48.25 )
 shape = SubResource( 11 )
 
 [node name="House 2 Warp Zone" type="Area2D" parent="."]
-script = ExtResource( 9 )
+script = ExtResource( 5 )
+destination = "rebirthHouse2"
+coord = Vector2( 64, 110 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House 2 Warp Zone"]
 position = Vector2( 232, 48 )
 shape = SubResource( 11 )
 
 [node name="House 3 Warp Zone" type="Area2D" parent="."]
-script = ExtResource( 10 )
+script = ExtResource( 5 )
+destination = "rebirthHouse3"
+coord = Vector2( 64, 110 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House 3 Warp Zone"]
 position = Vector2( 104, 208 )
 shape = SubResource( 11 )
 
 [node name="House 4 Warp Zone" type="Area2D" parent="."]
-script = ExtResource( 11 )
+script = ExtResource( 5 )
+destination = "rebirthHouse4"
+coord = Vector2( 64, 110 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="House 4 Warp Zone"]
 position = Vector2( 232, 208 )
@@ -197,13 +200,18 @@ shape = SubResource( 11 )
 
 [node name="Road 1 Warp Zone" type="Area2D" parent="."]
 script = ExtResource( 5 )
+destination = "road1"
+coord = Vector2( -688, 64 )
+relative = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Road 1 Warp Zone"]
 position = Vector2( 816, 88 )
 shape = SubResource( 10 )
 
 [node name="EB Warp" type="Area2D" parent="."]
-script = ExtResource( 12 )
+script = ExtResource( 5 )
+destination = "rebirthECenter"
+coord = Vector2( 64, 103 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="EB Warp"]
 position = Vector2( 112, 368.5 )
@@ -245,11 +253,11 @@ script = ExtResource( 13 )
 position = Vector2( 584, 376 )
 shape = SubResource( 13 )
 
-[connection signal="body_entered" from="House 1 Warp Zone" to="House 1 Warp Zone" method="_on_Area2D2_body_entered"]
-[connection signal="body_entered" from="House 2 Warp Zone" to="House 2 Warp Zone" method="_on_Area2D2_body_entered"]
-[connection signal="body_entered" from="House 3 Warp Zone" to="House 3 Warp Zone" method="_on_Area2D2_body_entered"]
-[connection signal="body_entered" from="House 4 Warp Zone" to="House 4 Warp Zone" method="_on_Area2D2_body_entered"]
+[connection signal="body_entered" from="House 1 Warp Zone" to="House 1 Warp Zone" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="House 2 Warp Zone" to="House 2 Warp Zone" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="House 3 Warp Zone" to="House 3 Warp Zone" method="_on_Area2D_body_entered"]
+[connection signal="body_entered" from="House 4 Warp Zone" to="House 4 Warp Zone" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Road 1 Warp Zone" to="Road 1 Warp Zone" method="_on_Area2D_body_entered"]
-[connection signal="body_entered" from="EB Warp" to="EB Warp" method="_on_EB_Warp_body_entered"]
+[connection signal="body_entered" from="EB Warp" to="EB Warp" method="_on_Area2D_body_entered"]
 [connection signal="body_entered" from="Area2D" to="Area2D" method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="Area2D" method="_on_Area2D_body_exited"]
