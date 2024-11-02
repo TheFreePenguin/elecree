@@ -1,12 +1,11 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
 [ext_resource path="res://charmove.gd" type="Script" id=2]
 [ext_resource path="res://playermove.gd" type="Script" id=3]
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=4]
 [ext_resource path="res://getTileType.gd" type="Script" id=5]
-[ext_resource path="res://check_creature.gd" type="Script" id=6]
-[ext_resource path="res://warp_1_rebirth.gd" type="Script" id=7]
+[ext_resource path="res://warp.gd" type="Script" id=7]
 [ext_resource path="res://OverSprites/spritesheet_devloper.png" type="Texture" id=8]
 [ext_resource path="res://road1.devloper.gd" type="Script" id=9]
 
@@ -151,7 +150,6 @@ extents = Vector2( 8, 16 )
 extents = Vector2( 9, 17 )
 
 [node name="road1" type="Node2D"]
-script = ExtResource( 6 )
 
 [node name="TileMap" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
@@ -191,6 +189,8 @@ shape = SubResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 7 )
+coord = Vector2( 688, -64 )
+relative = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 88, 144 )

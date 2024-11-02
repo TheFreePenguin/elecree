@@ -4,7 +4,7 @@
 [ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=2]
 [ext_resource path="res://charmove.gd" type="Script" id=3]
 [ext_resource path="res://elecreetileset.tres" type="TileSet" id=4]
-[ext_resource path="res://warp_h1_rebirth.gd" type="Script" id=6]
+[ext_resource path="res://warp.gd" type="Script" id=5]
 
 [sub_resource type="RectangleShape2D" id=9]
 extents = Vector2( 7, 14.5 )
@@ -179,7 +179,9 @@ current = true
 smoothing_speed = 3.0
 
 [node name="Area2D" type="Area2D" parent="."]
-script = ExtResource( 6 )
+script = ExtResource( 5 )
+destination = "rebirthTown"
+coord = Vector2( 104, 80 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 64, 136 )
