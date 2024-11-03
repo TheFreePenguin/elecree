@@ -189,6 +189,7 @@ shape = SubResource( 9 )
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 7 )
+destination = "rebirthTown"
 coord = Vector2( 688, -64 )
 relative = true
 

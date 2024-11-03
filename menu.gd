@@ -5,6 +5,7 @@ var menu_number: int = 1
 
 func _ready():
 	self.visible = false
+	print("Name: " + self.name)
 
 
 func _process(delta):
@@ -38,9 +39,14 @@ func _process(delta):
 				TeamScreen.show_items()
 				menu_number = 7
 				get_node("VBoxContainer/Label" + String(2)).add_color_override("font_color",Color(0, 0, 0, 1))
-				pass
 			3:
-				pass
+				self.visible = false
+				bag.visible = true
+				bag.offset = 0
+				bag.select = 0
+				bag.refresh()
+				menu_number = 7
+				get_node("VBoxContainer/Label" + String(3)).add_color_override("font_color",Color(0, 0, 0, 1))
 			4:
 				pass
 			5:

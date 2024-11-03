@@ -180,6 +180,7 @@ smoothing_speed = 3.0
 
 [node name="Area2D" type="Area2D" parent="."]
 script = ExtResource( 5 )
+destination = "rebirthTown"
 coord = Vector2( 232, 240 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
