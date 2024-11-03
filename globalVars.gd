@@ -10,7 +10,6 @@ var devMode: bool = false
 var last_e_center: String = "rebirthECenter"
 var last_pos: Vector2
 var last_loc: String
-
 var wildgen: Array
 var wild: bool
 
@@ -46,6 +45,10 @@ func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id:
 	wildgen = [hp, at, df, sp, st, lv, id]
 
 func _process(delta):
+	
+	if Input.is_key_pressed(KEY_B):
+		print("Bag is open: " + String(bag.visible))
+	
 	if Input.is_action_just_pressed("ui_up") && (devCode == 0 || devCode == 1):
 		devCode += 1
 	elif Input.is_action_just_pressed("ui_down"):
