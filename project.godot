@@ -69,6 +69,8 @@ TextboxScript="*res://textbox_script.gd"
 team="*res://team.tscn"
 TeamScreen="*res://creaturemenu.tscn"
 bag="*res://bag.tscn"
+Fps="res://fps.tscn"
+Battlercard="*res://battlercard.tscn"
 
 [display]
 

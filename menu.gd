@@ -48,7 +48,11 @@ func _process(delta):
 				menu_number = 7
 				get_node("VBoxContainer/Label" + String(3)).add_color_override("font_color",Color(0, 0, 0, 1))
 			4:
-				pass
+				self.visible = false
+				Battlercard.get_node("CanvasLayer").visible = true
+				Battlercard.get_node("CanvasLayer/TileMap").visible = true
+				menu_number = 7
+				get_node("VBoxContainer/Label" + String(4)).add_color_override("font_color",Color(0, 0, 0, 1))
 			5:
 				pass
 			6:
