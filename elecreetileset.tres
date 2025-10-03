@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=89 format=2]
+[gd_resource type="TileSet" load_steps=90 format=2]
 
 [ext_resource path="res://Tilemaps/tilemap.png" type="Texture" id=1]
 [ext_resource path="res://Tilemaps/grasstile.png" type="Texture" id=2]
@@ -15,6 +15,7 @@
 [ext_resource path="res://Tilemaps/uibase.png" type="Texture" id=13]
 [ext_resource path="res://Tilemaps/sign.png" type="Texture" id=14]
 [ext_resource path="res://Tilemaps/bg.png" type="Texture" id=15]
+[ext_resource path="res://empty_badge.png" type="Texture" id=16]
 
 [sub_resource type="ConvexPolygonShape2D" id=2]
 points = PoolVector2Array( 0, 0, 16, 0, 16, 16, 0, 16 )
@@ -251,6 +252,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 0/autotile/navpoly_map = [  ]
 0/autotile/priority_map = [  ]
 0/autotile/z_index_map = [  ]
+0/autotile/fallback_mode = 0
 0/occluder_offset = Vector2( 0, 0 )
 0/navigation_offset = Vector2( 0, 0 )
 0/shape_offset = Vector2( 0, 0 )
@@ -862,6 +864,7 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 32/autotile/navpoly_map = [  ]
 32/autotile/priority_map = [  ]
 32/autotile/z_index_map = [  ]
+32/autotile/fallback_mode = 0
 32/occluder_offset = Vector2( 0, 0 )
 32/navigation_offset = Vector2( 0, 0 )
 32/shape_offset = Vector2( 0, 0 )
@@ -2122,3 +2125,17 @@ points = PoolVector2Array( 16, 16, 0, 16, 0, 0, 16, 0 )
 101/shape_one_way_margin = 0.0
 101/shapes = [  ]
 101/z_index = 0
+102/name = "empty_badge.png 102"
+102/texture = ExtResource( 16 )
+102/tex_offset = Vector2( 0, 0 )
+102/modulate = Color( 1, 1, 1, 1 )
+102/region = Rect2( 0, 0, 16, 16 )
+102/tile_mode = 0
+102/occluder_offset = Vector2( 0, 0 )
+102/navigation_offset = Vector2( 0, 0 )
+102/shape_offset = Vector2( 0, 0 )
+102/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+102/shape_one_way = false
+102/shape_one_way_margin = 0.0
+102/shapes = [  ]
+102/z_index = 0

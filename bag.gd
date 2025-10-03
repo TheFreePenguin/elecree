@@ -1,6 +1,6 @@
 extends Node2D
 
-var bag: Array = ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l"]
+var item_bag: Array = ["Capture Cube", "Super Capture Cube", "Capture Cube", "Super Capture Cube", "Super Capture Cube"]
 var bag_ui: Array
 var offset: int
 var select: int
@@ -10,7 +10,7 @@ func generate_bag_ui() -> Array:
 	var items: Array
 	var amounts: Array
 	var ui: Array
-	for s in bag:
+	for s in item_bag:
 		if items.has(s):
 			amounts[items.find(s)] += 1
 		else:

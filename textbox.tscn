@@ -62,48 +62,48 @@ margin_right = 40.0
 margin_bottom = 40.0
 
 [node name="Label1" type="Label" parent="Menu/VBoxContainer"]
-margin_right = 69.0
-margin_bottom = 16.0
+margin_right = 64.0
+margin_bottom = 14.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "E-device"
 
 [node name="Label2" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 20.0
-margin_right = 69.0
-margin_bottom = 36.0
+margin_top = 18.0
+margin_right = 64.0
+margin_bottom = 32.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Party"
 
 [node name="Label3" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 40.0
-margin_right = 69.0
-margin_bottom = 56.0
+margin_top = 36.0
+margin_right = 64.0
+margin_bottom = 50.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Bag"
 
 [node name="Label4" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 60.0
-margin_right = 69.0
-margin_bottom = 76.0
+margin_top = 54.0
+margin_right = 64.0
+margin_bottom = 68.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
-text = "[NAME]"
+text = "Card"
 
 [node name="Label5" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 80.0
-margin_right = 69.0
-margin_bottom = 96.0
+margin_top = 72.0
+margin_right = 64.0
+margin_bottom = 86.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Save"
 
 [node name="Label6" type="Label" parent="Menu/VBoxContainer"]
-margin_top = 100.0
-margin_right = 69.0
-margin_bottom = 116.0
+margin_top = 90.0
+margin_right = 64.0
+margin_bottom = 104.0
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_fonts/font = ExtResource( 2 )
 text = "Exit"

@@ -1,0 +1,38 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://elecreetileset.tres" type="TileSet" id=1]
+[ext_resource path="res://retrogaming.tres" type="DynamicFont" id=2]
+[ext_resource path="res://OverSprites/sheet_fire.png" type="Texture" id=3]
+[ext_resource path="res://battlercard.gd" type="Script" id=4]
+
+[node name="battlercard" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+visible = false
+
+[node name="TileMap" type="TileMap" parent="CanvasLayer"]
+visible = false
+tile_set = ExtResource( 1 )
+cell_size = Vector2( 16, 16 )
+format = 1
+tile_data = PoolIntArray( 65537, 87, 0, 65538, 88, 0, 65539, 88, 0, 65540, 88, 0, 65541, 88, 0, 65542, 88, 0, 65543, 88, 0, 65544, 88, 0, 65545, 88, 0, 65546, 88, 0, 65547, 88, 0, 65548, 88, 0, 65549, 89, 0, 131073, 90, 0, 131074, 91, 0, 131075, 91, 0, 131076, 91, 0, 131077, 91, 0, 131078, 91, 0, 131079, 91, 0, 131080, 91, 0, 131081, 91, 0, 131082, 91, 0, 131083, 91, 0, 131084, 91, 0, 131085, 92, 0, 196609, 90, 0, 196610, 91, 0, 196611, 91, 0, 196612, 91, 0, 196613, 91, 0, 196614, 91, 0, 196615, 91, 0, 196616, 91, 0, 196617, 91, 0, 196618, 91, 0, 196619, 91, 0, 196620, 91, 0, 196621, 92, 0, 262145, 90, 0, 262146, 91, 0, 262147, 91, 0, 262148, 91, 0, 262149, 91, 0, 262150, 91, 0, 262151, 91, 0, 262152, 91, 0, 262153, 91, 0, 262154, 91, 0, 262155, 91, 0, 262156, 91, 0, 262157, 92, 0, 327681, 90, 0, 327682, 91, 0, 327683, 91, 0, 327684, 91, 0, 327685, 91, 0, 327686, 91, 0, 327687, 91, 0, 327688, 91, 0, 327689, 91, 0, 327690, 91, 0, 327691, 91, 0, 327692, 91, 0, 327693, 92, 0, 393217, 90, 0, 393218, 91, 0, 393219, 91, 0, 393220, 91, 0, 393221, 91, 0, 393222, 91, 0, 393223, 91, 0, 393224, 91, 0, 393225, 91, 0, 393226, 91, 0, 393227, 91, 0, 393228, 91, 0, 393229, 92, 0, 458753, 90, 0, 458754, 102, 0, 458755, 102, 0, 458756, 102, 0, 458757, 102, 0, 458758, 102, 0, 458759, 91, 0, 458760, 102, 0, 458761, 102, 0, 458762, 102, 0, 458763, 102, 0, 458764, 102, 0, 458765, 92, 0, 524289, 93, 0, 524290, 94, 0, 524291, 94, 0, 524292, 94, 0, 524293, 94, 0, 524294, 94, 0, 524295, 94, 0, 524296, 94, 0, 524297, 94, 0, 524298, 94, 0, 524299, 94, 0, 524300, 94, 0, 524301, 95, 0 )
+
+[node name="Label" type="Label" parent="CanvasLayer"]
+margin_left = 17.0
+margin_top = 18.0
+margin_right = 222.0
+margin_bottom = 143.0
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+custom_fonts/font = ExtResource( 2 )
+text = "NAME: <NAME>
+CREDITS: <MONEY>
+E-DEVICE: <#>/70
+TIME: XX:YY"
+script = ExtResource( 4 )
+
+[node name="Sprite" type="Sprite" parent="CanvasLayer"]
+position = Vector2( 184, 65 )
+scale = Vector2( 2.91176, 2.91176 )
+texture = ExtResource( 3 )
+hframes = 3
+vframes = 4

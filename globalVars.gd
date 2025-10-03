@@ -12,6 +12,11 @@ var last_pos: Vector2
 var last_loc: String
 var wildgen: Array
 var wild: bool
+var caught_creatures: int = 0
+var real_time: float = 0
+var time: String
+var credits: int = 300
+var player_name: String = "Fire" # Default player name, will be changeable in release
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -44,7 +49,19 @@ func start_wild_battle(hp: int, at: int, df: int, sp: int, st: int, lv: int, id:
 	wild = true
 	wildgen = [hp, at, df, sp, st, lv, id]
 
+
+func leading_zero(input: String) -> String:
+	if input.length() == 1:
+		return "0" + input
+	else:
+		return input
+
 func _process(delta):
+	
+	real_time += delta
+	var seconds: int = int(real_time)
+	time = str(seconds / 60) + ":" + leading_zero(str(seconds % 60))
+	
 	
 	if Input.is_key_pressed(KEY_B):
 		print("Bag is open: " + String(bag.visible))
