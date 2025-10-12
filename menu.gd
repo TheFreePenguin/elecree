@@ -54,7 +54,15 @@ func _process(delta):
 				menu_number = 7
 				get_node("VBoxContainer/Label" + String(4)).add_color_override("font_color",Color(0, 0, 0, 1))
 			5:
-				pass
+				if GlobalVars.devMode:
+					var save: String = to_json(GlobalVars.serialize_save())
+					print(save)
+					var save_file: File = File.new()
+					print("Could open?")
+					print(save_file.open("user://savefile.dat", 7))
+					#print("Is open?" + str(save_file.is_open()))
+					save_file.store_string(save)
+					
 			6:
 				self.visible = false
 				global.cutscenePlaying = false
