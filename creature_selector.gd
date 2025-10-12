@@ -4,7 +4,7 @@ class_name CreatureSelector
 var creature: int
 var labels: Array
 var creatures: int
-var dictionaries: Array
+var dictionaries: Dictionary
 var team_of_creatures: Array
 var in_details: bool = false
 var first_frame: bool = true

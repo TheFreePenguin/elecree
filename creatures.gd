@@ -4,20 +4,21 @@ class_name Creatures
 const attack_list = [ "Tackle", "Defend"]
 const stamina_cost = [ 3,        0      ]
 
-const data = [{
-  "name": "TestMonster",
-  "edeviceid": 00,
-  "edeviceentry": "This is a test monster used for debugging. It should not be seen in the final release",
-  "edeviceheight": 1.0,
-  "edeviceweight": 10.0,
-  "basehp": 30,
-  "baseat": 30,
-  "basedf": 30,
-  "basesp": 30,
-  "basest": 30,
-  "basexp": 50,
-  "attacks": ["Tackle"]
-}]
+const data = {
+	0: {
+		"name": "TestMonster",
+		"edeviceid": 00,
+		"edeviceentry": "This is a test monster used for debugging. It should not be seen in the final release",
+		"edeviceheight": 1.0,
+		"edeviceweight": 10.0,
+		"basehp": 30,
+		"baseat": 30,
+		"basedf": 30,
+		"basesp": 30,
+		"basest": 30,
+		"basexp": 50,
+		"attacks": ["Tackle"]
+}}
 
 func _ready():
 	print("Initialized creatures.gd")

@@ -12,7 +12,7 @@ var last_pos: Vector2
 var last_loc: String
 var wildgen: Array
 var wild: bool
-var caught_creatures: int = 0
+var e_device_caught: Array = []
 var real_time: float = 0
 var time: String
 var credits: int = 300
@@ -27,6 +27,19 @@ func _ready():
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 #func _process(delta):
 #	pass
+
+func serialize_save() -> Dictionary:
+	var output: Dictionary = {}
+	output["current_scene"] = get_tree().current_scene.get_path()
+	output["dev_mode"] = devMode
+	output["last_e_center"] = last_e_center
+	output["caught_creatures"] = e_device_caught
+	output["real_time"] = real_time
+	output["credits"] = credits
+	output["player_name"] = player_name
+	output["x_position"] = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position.x
+	output["y_position"] = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position.y
+	return output
 
 func _warpPlayer(destination: Vector2, destination_scene: String, relative: bool = false):
 	if relative:
