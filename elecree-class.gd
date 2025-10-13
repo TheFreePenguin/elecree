@@ -29,6 +29,47 @@ var dna_df: int
 var dna_sp: int
 var dna_st: int
 
+func serialize() -> String:
+	var mid_stage: Dictionary = {}
+	mid_stage["stathp"] = stathp
+	mid_stage["statat"] = statat
+	mid_stage["statdf"] = statdf
+	mid_stage["statsp"] = statsp
+	mid_stage["statst"] = statst
+	mid_stage["species"] = species
+	mid_stage["currenthp"] = currenthp
+	mid_stage["currentst"] = currentst
+	mid_stage["status"] = status
+	mid_stage["level"] = level
+	mid_stage["attacks"] = attacks
+	mid_stage["dna_hp"] = dna_hp
+	mid_stage["dna_at"] = dna_at
+	mid_stage["dna_df"] = dna_df
+	mid_stage["dna_sp"] = dna_sp
+	mid_stage["dna_st"] = dna_st
+	return to_json(mid_stage)
+
+func deserialize(json: String):
+	var mid_stage: Dictionary = parse_json(json)
+	stathp = mid_stage["stathp"]
+	statat = mid_stage["statat"]
+	statdf = mid_stage["statdf"]
+	statsp = mid_stage["statsp"]
+	statst = mid_stage["statst"]
+	species = mid_stage["species"]
+	currenthp = mid_stage["currenthp"]
+	currentat = statat
+	currentdf = statdf
+	currentsp = statsp
+	currentst = mid_stage["currentst"]
+	status = mid_stage["status"]
+	level = mid_stage["level"]
+	attacks = mid_stage["attacks"]
+	dna_hp = mid_stage["dna_hp"]
+	dna_at = mid_stage["dna_at"]
+	dna_df = mid_stage["dna_df"]
+	dna_sp = mid_stage["dna_sp"]
+	dna_st = mid_stage["dna_st"]
 
 func burn():
 	if status == StatusEffect.OK:

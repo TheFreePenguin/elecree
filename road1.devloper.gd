@@ -30,6 +30,9 @@ func _process(delta):
 				textboxlabel3.text = "construction."
 				interactNumber += 1
 			elif interactNumber == 1:
+				textboxlabel1.text = ""
+				textboxlabel2.text = ""
+				textboxlabel3.text = ""
 				textbox.visible = false
 				global.cutscenePlaying = false
 				interactNumber = 0
