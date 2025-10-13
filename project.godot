@@ -71,6 +71,7 @@ TeamScreen="*res://creaturemenu.tscn"
 bag="*res://bag.tscn"
 Fps="res://fps.tscn"
 Battlercard="*res://battlercard.tscn"
+Yesno="*res://yesno.tscn"
 
 [display]
 

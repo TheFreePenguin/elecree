@@ -28,9 +28,33 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func deserialize_save():
+	var save_file: File = File.new()
+	print("Will it open?")
+	print(save_file.open("user://savefile.dat", 3))
+	print("Will it serialize?")
+	var json: String = save_file.get_line()
+	var dict: Dictionary = parse_json(json)
+	devMode = dict["dev_mode"]
+	last_e_center = dict["last_e_center"]
+	e_device_caught = dict["caught_creatures"]
+	real_time = dict["real_time"]
+	credits = dict["credits"]
+	player_name = dict["player_name"]
+	team.team = []
+	for elc in dict["team"]:
+		if elc != null:
+			var creature: Elecree = Elecree.new(0,0,0,0,0,0,0)
+			team.team.push_back(creature)
+			creature.deserialize(elc)
+		else:
+			team.team.push_back(null)
+	_warpPlayer(Vector2(dict["x_position"], dict["y_position"]), dict["current_scene"])
+	bag.item_bag = dict["bag"]
+
 func serialize_save() -> Dictionary:
 	var output: Dictionary = {}
-	output["current_scene"] = get_tree().current_scene.get_path()
+	output["current_scene"] = get_tree().current_scene.filename
 	output["dev_mode"] = devMode
 	output["last_e_center"] = last_e_center
 	output["caught_creatures"] = e_device_caught
@@ -39,6 +63,13 @@ func serialize_save() -> Dictionary:
 	output["player_name"] = player_name
 	output["x_position"] = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position.x
 	output["y_position"] = get_node(String(get_tree().current_scene.get_path()) + "/Player").global_position.y
+	output["team"] = []
+	for elc in team.team:
+		if elc != null:
+			output["team"].push_back(elc.serialize())
+		else:
+			output["team"].push_back(null)
+	output["bag"] = bag.item_bag
 	return output
 
 func _warpPlayer(destination: Vector2, destination_scene: String, relative: bool = false):
@@ -75,6 +106,9 @@ func _process(delta):
 	var seconds: int = int(real_time)
 	time = str(seconds / 60) + ":" + leading_zero(str(seconds % 60))
 	
+	
+	if devMode && Input.is_key_pressed(KEY_L):
+		deserialize_save()
 	
 	if Input.is_key_pressed(KEY_B):
 		print("Bag is open: " + String(bag.visible))
