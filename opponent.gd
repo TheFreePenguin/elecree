@@ -59,13 +59,18 @@ func sort_by_score(a, b) -> bool:
 
 func enemy_ai() -> String:
 	var attacks: Array = data.attacks.duplicate()
+	attacks.push_back("Defend")
 	attacks.sort_custom(self, "sort_by_score")
 	attacks.invert()
 	return get_weighted_random(attacks)
 	
 func attack(target: Elecree, attack: String):
-	yield(get_parent().display_text(["The opposing " + data.get_name() + " used " + attack + "!"]), "completed")
-	data.attack(target, attack)
+	if attack != "Defend":
+		yield(get_parent().display_text(["The opposing " + data.get_name() + " used " + attack + "!"]), "completed")
+		data.attack(target, attack)
+	else:
+		yield(get_parent().display_text(["The opposing " + data.get_name() + " defended!"]), "completed")
+		data.defend()
 
 var displaying_text: bool = false
 

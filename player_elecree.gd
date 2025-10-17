@@ -11,3 +11,7 @@ func _ready():
 func attack(target: Elecree, attack: String):
 	yield(get_parent().display_text([data.get_name() + " used " + attack + "!"]), "completed")
 	data.attack(target, attack)
+
+func defend():
+	yield(get_parent().display_text([data.get_name() + " defended!"]), "completed")
+	data.defend()

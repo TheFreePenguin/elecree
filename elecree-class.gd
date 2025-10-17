@@ -28,6 +28,7 @@ var dna_at: int
 var dna_df: int
 var dna_sp: int
 var dna_st: int
+var last_status: int
 
 func serialize() -> String:
 	var mid_stage: Dictionary = {}
@@ -112,19 +113,19 @@ func attack(target: Elecree, attack: String) -> Array:
 		"Tackle":
 			damage(target, 30)
 			return [""]
-		"Defend":
-			if status != 0:
-				return ["But it failed!"]
-			else:
-				status = 3
-				currentdf *= 1.5
-				return [""]
 		_:
 			return [""]
 
+func defend():
+	currentst = statst
+	recharge = 0
+	last_status = status
+	status = 3
 
 func damage(target: Elecree, power: int):
 	var dmg: int = (power * level * (float(currentat) / float(target.currentdf))) / 10
+	if target.status == 3:
+		dmg /= 1.5
 	#print("Power" + str(power) + "Level" + str(level) + "Attack" + str(currentat) + "Defense" + str(target.currentdf))
 	target.currenthp -= dmg
 	#print(target.currenthp)
