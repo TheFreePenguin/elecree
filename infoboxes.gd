@@ -24,8 +24,8 @@ func _process(delta):
 		opponent.recharge = 100 if opponent.recharge > 100 else opponent.recharge
 	
 	if lock == 1 && Input.is_action_just_pressed("ui_accept"):
-		lock = 2
-		get_node("Attack Selector").wait_and_show()
+		lock = 3
+		get_node("MoveSelector").wait_and_show()
 	
 	#if lock == 2:
 	
@@ -58,9 +58,8 @@ func _process(delta):
 			if player.status != 3:
 				lock = 1
 			else:
-				player.status = 0
+				player.status = player.last_status
 				player.recharge = 0
-				player.currentdf /= 1.5
 		elif opponent.recharge >= 100:
 			if opponent.status != 3:
 				lock = -1
@@ -68,9 +67,8 @@ func _process(delta):
 				yield(get_node("OpposingElecree").attack(get_node("PlayerElecree").data, attack), "completed")
 				lock = 0
 			else:
-				opponent.status = 0
+				opponent.status = opponent.last_status
 				opponent.recharge = 0
-				opponent.currentdf /= 1.5
 	
 	if lock == 1:
 		get_node("CanvasLayer/InfoBox/HBoxContainer/Name").add_color_override("font_color", Color(1.0, 1.0, 1.0))
